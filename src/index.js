@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Button from './components/Button.js'
+import Sample from './components/Sample.js'
 
-const app = document.getElementById('app')
-console.log('moo ' + app)
-ReactDOM.render(<Button title="Nothing Magical"/>, app)
+const root = document.getElementById('root')
+ReactDOM.render(<Sample />, root)
