@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Hello from './Hello.js'
 import Label from './Label.js'
 import Button from './Button.js'
+import Input from './Input.js'
 
 //
 // Component
@@ -10,18 +11,25 @@ import Button from './Button.js'
 class Sample extends Component {
     render() {
         return (
-            <div className="form-group">
+            <div>
                 <div>
                     {Hello}
                 </div>
+                <form>
+                    <div className="form-group">
+                        <Label text="Email" />
+                        <Input type="text" placeholder="Email" />
+                    </div>
 
-                <div>
-                    <Label text="This is label" />
-                </div>
+                    <div className="form-group">
+                        <Label text="Password" />
+                        <Input type="password" placeholder="Password" />
+                    </div>
 
-                <div>
-                    <Button title="Sign up" />
-                </div>
+                    <div>
+                        <Button title="Sign up" />
+                    </div>
+                </form>
             </div>
         )
     }
