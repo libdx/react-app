@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import Hello from './Hello.js'
-import Label from './Label.js'
-import Button from './Button.js'
-import Input from './Input.js'
+import Hello from './Hello'
+import Label from './Label'
+import Button from './Button'
+import Input from './Input'
+import '../styles/menu.css'
 
 //
 // Component

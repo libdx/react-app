@@ -1,34 +1,54 @@
 const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin")
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
-module.exports = {
-    entry: ['./src/index.js'],
-    output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
-    },
+module.exports = function(env, options) {
+    const isProduction = options.mode === "production"
 
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
+    const config = {
+        entry: ['./src/index.js'],
+        mode: options.mode,
+        devtool: isProduction ? "none" : "source-map",
+        output: {
+            filename: '[name].bundle.js',
+            path: path.resolve(__dirname, 'dist')
+        },
+
+        resolve: {
+            extensions: [".js", ".jsx", ".ts", ".tsx"]
+        },
+
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: "babel-loader"
+                    }
+                },
+                {
+                    test: /\.html$/,
+                    use: {
+                        loader: "html-loader"
+                    }
+                },
+                {
+                    test: /\.css$/,
+                    use: ExtractTextPlugin.extract({
+                        fallback: "style-loader",
+                        use: "css-loader"
+                    })
                 }
-            },
-            {
-                test: /\.html$/,
-                use: {
-                    loader: "html-loader"
-                }
-            }
+            ]
+        },
+        plugins: [
+            new HtmlWebPackPlugin({
+                template: './src/index.html',
+                filename: './index.html'
+            }),
+            new ExtractTextPlugin("[name].css")
         ]
-    },
-    plugins: [
-        new HtmlWebPackPlugin({
-            template: './src/index.html',
-            filename: './index.html'
-        })
-    ]
+    }
+    return config
 }
