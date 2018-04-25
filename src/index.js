@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Sample from './components/sample.js'
+import App from './components/app'
 
 const root = document.getElementById('root')
-ReactDOM.render(<Sample />, root)
+ReactDOM.render(<App />, root)

@@ -13,9 +13,9 @@ const forrest: Movie = {
     gener: "Comedy-drama"
 }
 
-type SampleProps = {}
+type AppProps = {}
 
-class Sample extends Component<SampleProps> {
+class App extends Component<AppProps> {
     render() {
         return (
             <div className="container">
@@ -25,4 +25,4 @@ class Sample extends Component<SampleProps> {
     }
 }
 
-export default Sample
+export default App
