@@ -1,36 +1,25 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import Hello from './Hello'
-import Label from './Label'
-import Button from './Button'
-import Input from './Input'
-import '../styles/menu.css'
+//@flow
 
-//
-// Component
-//
-class Sample extends Component {
+import React, { Component } from 'react'
+
+import Movie from '../movie.js'
+import MovieCard from './movie_card'
+import MovieGrid from './movie_table'
+
+const forrest: Movie = {
+    imageURL: "https://bit.ly/2H38owZ",
+    title: "Forrest Gump",
+    releaseYear: "1994",
+    gener: "Comedy-drama"
+}
+
+type SampleProps = {}
+
+class Sample extends Component<SampleProps> {
     render() {
         return (
-            <div>
-                <div>
-                    {Hello}
-                </div>
-                <form>
-                    <div className="form-group">
-                        <Label text="Email" />
-                        <Input type="text" placeholder="Email" />
-                    </div>
-
-                    <div className="form-group">
-                        <Label text="Password" />
-                        <Input type="password" placeholder="Password" />
-                    </div>
-
-                    <div>
-                        <Button title="Sign up" />
-                    </div>
-                </form>
+            <div className="container">
+                <MovieGrid movies={[forrest, forrest, forrest, forrest, forrest, forrest]} />
             </div>
         )
     }
