@@ -1,18 +1,17 @@
 //@flow
 
 import React, { Component } from 'react'
-import Movie from '../movie.js'
+import Movie from '../movie'
 
 type MovieCardProps = {
-    movie: Movie,
-    index: number
+    movie: Movie
 }
 
 const MovieCard = (props: MovieCardProps) => {
     // TODO: provide planceholder if image loading if failed
 
     return (
-        <div key={props.index} className="col-sm">
+        <div>
             <img src={props.movie.imageURL} />
         </div>
     )

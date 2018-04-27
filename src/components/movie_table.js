@@ -10,35 +10,19 @@ type MovieTableProps = {
 
 const MovieTable = ({ movies }: MovieTableProps) => {
 
-    const cols = 3
-
-    let slices = []
-    for (let i = 0; i + cols <= movies.length; i+=cols) {
-        let slice = movies.slice(i, i + cols)
-        slices = slices.concat([slice])
-    }
-
-    const row = slice => {
+    const items = movies.map((movie, index) => {
         return (
-            slice.map((movie, index) => {
-                return (
-                    <div key={index} className="col-sm">
-                        <MovieCard index={index} movie={movie} />
-                    </div>
-                )
-            })
-        )
-    }
-
-    const cards = slices.map((slice, index) => {
-        return (
-            <div key={index} className="row">
-                {row(slice)}
+            <div key={index} className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                <MovieCard movie={movie} />
             </div>
         )
     })
 
-    return cards
+    return (
+        <div className="row">
+            {items}
+        </div>
+    )
 }
 
 export default MovieTable
