@@ -1,0 +1,33 @@
+.textbox {
+    width: 100%;
+    padding: 0px;
+}
+
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+}
+
+.alignbottom {
+    float: bottom;
+}
+
+.alighclear {
+    clear: both;
+}
+
+.movie-card {
+    width: 14rem;
+    border: 0px;
+}
+
+.card-body {
+    padding: 0.25rem;
+}
+
+.card-title {
+    margin-bottom: 0.5rem;
+}
