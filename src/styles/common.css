@@ -31,3 +31,34 @@
 .card-title {
     margin-bottom: 0.5rem;
 }
+
+.status-bar {
+    background-color: #d3d3d3;
+    margin-bottom: 16px
+}
+
+.status-bar span {
+    padding: 5px 35px
+}
+
+.header {
+    background-color: #1b3752;
+    margin-bottom: 50px;
+}
+
+.header p.brand {
+    color: #f0f0f0;
+}
+
+.header p.title {
+    color: #f0f0f0;
+}
+
+.header p {
+    padding: 5px 20px;
+}
+
+.footer {
+    background-color: #606060;
+}
+
