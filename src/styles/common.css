@@ -33,32 +33,42 @@
 }
 
 .status-bar {
-    background-color: #d3d3d3;
+    border: 1px solid #868e96;
     margin-bottom: 16px
 }
 
 .status-bar span {
-    padding: 5px 35px
+    padding: 5px 30px;
 }
 
 .header {
-    background-color: #1b3752;
-    margin-bottom: 50px;
+    border: 1px solid #868e96;
 }
 
 .header p.brand {
-    color: #f0f0f0;
+    color: #868e96;
 }
 
 .header p.title {
-    color: #f0f0f0;
+    color: #868e96;
 }
 
 .header p {
-    padding: 5px 20px;
+    padding: 5px 15px;
 }
 
 .footer {
-    background-color: #606060;
+    border: 1px solid #868e96;
 }
+
+.footer span {
+    color: #868e96;
+    padding: 0px 15px;
+}
+
+.empty-state p {
+    padding: 200px 0px;
+    text-align: center;
+    font-size: 24pt;
+} 
 

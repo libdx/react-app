@@ -6,13 +6,15 @@ import Header from './header'
 import SearchBar from './search_bar'
 import StatusBar from './status_bar'
 import Footer from './footer'
+import EmptyState from './empty_state'
 import MovieCard from './movie_card'
 import MovieGrid from './movie_table'
+import MovieDetails from './movie_details'
 
 import Movie from '../movie'
 
 const forrest: Movie = {
-    imageURL: "https://bit.ly/2H38owZ",
+    imageURL: "http://t0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu",
     title: "Forrest Gump",
     releaseYear: "1994",
     gener: "Comedy-drama"
@@ -30,6 +32,10 @@ class App extends Component<AppProps> {
                 </Header>
                 <StatusBar title="Search results" />
                 <MovieGrid movies={[forrest, forrest, forrest, forrest, forrest, forrest]} />
+                <EmptyState />
+                <Header brand={brand}>
+                    <MovieDetails movie={forrest} />
+                </Header>
                 <Footer brand={brand} />
             </div>
         )
