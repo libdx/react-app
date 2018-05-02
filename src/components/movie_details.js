@@ -23,6 +23,9 @@ const MovieDetails = ({movie}: Props) => {
                     <p className="card-text mb-2 text-muted">
                         {movie.gener}
                     </p>
+                    <p>
+                        {movie.description}
+                    </p>
                 </div>
             </div>
         </div>
