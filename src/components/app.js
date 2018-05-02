@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 
+import ErrorBoundary from './error_boundary'
 import Header from './header'
 import SearchBar from './search_bar'
 import StatusBar from './status_bar'
@@ -28,16 +29,18 @@ class App extends Component<AppProps> {
         const brand = "Movieseek"
         return (
             <div className="container">
-                <Header brand={brand}>
-                    <SearchBar />
-                </Header>
-                <StatusBar title="Search results" />
-                <MovieGrid movies={[forrest, forrest, forrest, forrest, forrest, forrest]} />
-                <EmptyState />
-                <Header brand={brand}>
-                    <MovieDetails movie={forrest} />
-                </Header>
-                <Footer brand={brand} />
+                <ErrorBoundary>
+                    <Header brand={brand}>
+                        <SearchBar />
+                    </Header>
+                    <StatusBar title="Search results" />
+                    <MovieGrid movies={[forrest, forrest, forrest, forrest, forrest, forrest]} />
+                    <EmptyState />
+                    <Header brand={brand}>
+                        <MovieDetails movie={forrest} />
+                    </Header>
+                    <Footer brand={brand} />
+                </ErrorBoundary>
             </div>
         )
     }

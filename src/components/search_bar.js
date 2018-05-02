@@ -70,6 +70,10 @@ export default class SearchBar extends React.Component<Props, State> {
 
         console.log(styles)
 
+        if (styles.gener === "btn btn-info") {
+            throw new Error('moo')
+        }
+
         return (
             <div className="search-bar">
                 <div className="input-group mb-3">
@@ -87,7 +91,7 @@ export default class SearchBar extends React.Component<Props, State> {
                 <div className="button-group">
                     <span>Search by</span>
                     <button type="button" className={styles.title} onClick={this.onTitleButtonClick}>Title</button>
-                    <button type="button" className={styles.gener} onClick={this.onGenerButtonClick}>Gener</button>
+                    <button type="button" className={styles.gener} onClick={this.onGenerButtonClick}>Gener (throws Error)</button>
                 </div>
             </div>
         )
