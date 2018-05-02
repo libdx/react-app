@@ -12,7 +12,7 @@ const MovieTable = ({ movies }: MovieTableProps) => {
 
     const items = movies.map((movie, index) => {
         return (
-            <div key={index} className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+            <div key={index} className="col-md-4 col-sm-6">
                 <MovieCard movie={movie} />
             </div>
         )
