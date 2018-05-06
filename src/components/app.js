@@ -12,7 +12,7 @@ import MovieCard from './movie_card'
 import MovieGrid from './movie_table'
 import MovieDetails from './movie_details'
 
-import Movie from '../movie'
+import type { Movie } from '../movie'
 
 const forrest: Movie = {
     imageURL: "http://t0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu",

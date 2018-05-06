@@ -1,7 +1,7 @@
 //@flow
 
 import React, { Component } from 'react'
-import Movie from '../movie'
+import type { Movie } from '../movie'
 import '../styles/common.css'
 
 type Props = {
