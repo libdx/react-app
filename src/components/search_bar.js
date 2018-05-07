@@ -3,12 +3,14 @@
 import React, { Component } from 'react'
 import Button from './button'
 import SearchInput from './search_input'
+import FilterButtonGroup from './filter_button_group'
 
 const criteria = {
     TITLE: "TITLE",
     GENRE: "GENRE"
-
 }
+
+const criteriaOrder = [criteria.TITLE, criteria.GENRE]
 
 type SearchBy = $Keys<typeof criteria>
 
@@ -29,6 +31,7 @@ export default class SearchBar extends React.Component<Props, State> {
     onTermChange: (term: string) => void
     onTitleButtonClick: () => void
     onGenerButtonClick: () => void
+    onButtonGroupClick: (index: number) => void
 
     constructor(props: Props) {
         super(props)
@@ -37,28 +40,23 @@ export default class SearchBar extends React.Component<Props, State> {
             searchBy: criteria.TITLE
         }
         this.onTermChange = this.onTermChange.bind(this)
-        this.onTitleButtonClick = this.onTitleButtonClick.bind(this)
-        this.onGenerButtonClick = this.onGenerButtonClick.bind(this)
+
+        this.onButtonGroupClick = this.onButtonGroupClick.bind(this)
     }
 
-    onTitleButtonClick() {
-        this.setState({ searchBy: criteria.TITLE })
-    }
+    onButtonGroupClick(index: number): void {
+        const searchBy = criteriaOrder[index]
 
-    onGenerButtonClick() {
-        this.setState({ searchBy: criteria.GENRE })
+        console.log(searchBy)
+        this.setState({ searchBy })
     }
 
     onTermChange(term: string) {
-        console.log(term)
         this.setState({ term })
     }
 
     render() {
         const state = this.state
-
-        const isTitleSelected = state.searchBy == criteria.TITLE
-        const isGenreSelected = state.searchBy == criteria.GENRE
 
         return (
             <div className="search-bar">
@@ -68,11 +66,12 @@ export default class SearchBar extends React.Component<Props, State> {
                     buttonTitle="Search"
                     onChange={this.onTermChange}
                 />
-                <div className="button-group">
-                    <span>Search by</span>
-                    <Button title="Title" selected={isTitleSelected} onClick={this.onTitleButtonClick} />
-                    <Button title="Genre" selected={isGenreSelected} onClick={this.onGenerButtonClick} />
-                </div>
+                <FilterButtonGroup
+                    title="Search by"
+                    buttonTitles={["Title", "Genre"]}
+                    selectedIndex={criteriaOrder.indexOf(state.searchBy)}
+                    onClick={this.onButtonGroupClick}
+                />
             </div>
         )
     }
