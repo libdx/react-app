@@ -1,14 +1,15 @@
 //@flow
 
-import React, { Component } from 'react'
-import type { Movie } from '../movie'
+import React from 'react'
 import MovieCard from './movie_card'
 
-type MovieTableProps = {
+import type { Movie } from '../movie'
+
+type Props = {
     movies: Array<Movie>
 }
 
-const MovieTable = ({ movies }: MovieTableProps) => {
+const MovieGrid = ({ movies }: Props) => {
 
     const items = movies.map((movie, index) => {
         return (
@@ -25,4 +26,4 @@ const MovieTable = ({ movies }: MovieTableProps) => {
     )
 }
 
-export default MovieTable
+export default MovieGrid

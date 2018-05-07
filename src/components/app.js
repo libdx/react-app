@@ -9,7 +9,7 @@ import StatusBar from './status_bar'
 import Footer from './footer'
 import EmptyState from './empty_state'
 import MovieCard from './movie_card'
-import MovieGrid from './movie_table'
+import MovieGrid from './movie_grid'
 import MovieDetails from './movie_details'
 
 import type { Movie } from '../movie'

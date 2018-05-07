@@ -56,6 +56,9 @@ export default class SearchBar extends React.Component<Props, State> {
     render() {
         const state = this.state
 
+        const isTitleSelected = state.searchBy == criteria.TITLE
+        const isGenreSelected = state.searchBy == criteria.GENRE
+
         return (
             <div className="search-bar">
                 <SearchInput
@@ -66,8 +69,8 @@ export default class SearchBar extends React.Component<Props, State> {
                 />
                 <div className="button-group">
                     <span>Search by</span>
-                    <Button title="Title" selected={state.searchBy == criteria.TITLE} onClick={this.onTitleButtonClick} />
-                    <Button title="Genre" selected={state.searchBy == criteria.GENRE} onClick={this.onGenerButtonClick} />
+                    <Button title="Title" selected={isTitleSelected} onClick={this.onTitleButtonClick} />
+                    <Button title="Genre" selected={isGenreSelected} onClick={this.onGenerButtonClick} />
                 </div>
             </div>
         )
