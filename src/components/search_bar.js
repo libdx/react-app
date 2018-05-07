@@ -50,6 +50,7 @@ export default class SearchBar extends React.Component<Props, State> {
     }
 
     onTermChange(term: string) {
+        console.log(term)
         this.setState({ term })
     }
 

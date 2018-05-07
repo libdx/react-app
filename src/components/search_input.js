@@ -1,6 +1,7 @@
 //@flow
 
-import * as React from 'react'
+import React from 'react'
+import Button, { INFO, SECONDARY } from './button'
 
 type Props = {
     term: string,
@@ -27,7 +28,7 @@ const SearchInput = ({ term, placeholder, buttonTitle, onChange }: Props) => {
                 onChange={_onChange}
             />
             <div className="input-group-append">
-                <button className="btn btn-outline-secondary" type="button">{buttonTitle}</button>
+                <Button title={buttonTitle} kind={SECONDARY} />
             </div>
         </div>
     )
