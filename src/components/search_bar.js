@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import Button from './button'
+import SearchInput from './search_input'
 
 const criteria = {
     TITLE: "TITLE",
@@ -57,18 +58,12 @@ export default class SearchBar extends React.Component<Props, State> {
 
         return (
             <div className="search-bar">
-                <div className="input-group mb-3">
-                    <input 
-                        value={state.term}
-                        type="text"
-                        className="form-control"
-                        placeholder="Search"
-                        onChange={event => this.onTermChange(event.target.value)}
-                    />
-                    <div className="input-group-append">
-                        <button className="btn btn-outline-secondary" type="button">Search</button>
-                    </div>
-                </div>
+                <SearchInput
+                    term={state.term}
+                    placeholder="Search"
+                    buttonTitle="Search"
+                    onChange={this.onTermChange}
+                />
                 <div className="button-group">
                     <span>Search by</span>
                     <Button title="Title" selected={state.searchBy == criteria.TITLE} onClick={this.onTitleButtonClick} />
