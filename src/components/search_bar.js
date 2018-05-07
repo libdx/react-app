@@ -1,14 +1,15 @@
 //@flow
 
 import React, { Component } from 'react'
+import Button from './button'
 
-const CRITERIA = {
+const criteria = {
     TITLE: "TITLE",
-    GENER: "GENER"
+    GENRE: "GENRE"
 
 }
 
-type SearchBy = $Keys<typeof CRITERIA>
+type SearchBy = $Keys<typeof criteria>
 
 type ButtonStyles = {
     title: string,
@@ -20,7 +21,7 @@ type Props = {
 
 type State = {
     term: string,
-    searchBy: SearchBy
+    searchBy: SearchBy,
 }
 
 export default class SearchBar extends React.Component<Props, State> {
@@ -32,7 +33,7 @@ export default class SearchBar extends React.Component<Props, State> {
         super(props)
         this.state = {
             term: '',
-            searchBy: CRITERIA.TITLE
+            searchBy: criteria.TITLE
         }
         this.onTermChange = this.onTermChange.bind(this)
         this.onTitleButtonClick = this.onTitleButtonClick.bind(this)
@@ -40,39 +41,19 @@ export default class SearchBar extends React.Component<Props, State> {
     }
 
     onTitleButtonClick() {
-        this.setState({ searchBy: CRITERIA.TITLE })
+        this.setState({ searchBy: criteria.TITLE })
     }
 
     onGenerButtonClick() {
-        this.setState({ searchBy: CRITERIA.GENER })
+        this.setState({ searchBy: criteria.GENRE })
     }
 
     onTermChange(term: string) {
         this.setState({ term })
     }
 
-    buttonStyles(): ButtonStyles {
-        let styles: ButtonStyles = {title: '', gener: ''}
-        switch (this.state.searchBy) {
-            case CRITERIA.TITLE:
-                styles = {title: "btn btn-info", gener: "btn btn-outline-info"} 
-                break;
-            case CRITERIA.GENER:
-                styles = {title: "btn btn-outline-info", gener: "btn btn-info"} 
-                break;
-        }
-        return styles
-    }
-
     render() {
         const state = this.state
-        const styles = this.buttonStyles()
-
-        console.log(styles)
-
-        if (styles.gener === "btn btn-info") {
-            throw new Error('moo')
-        }
 
         return (
             <div className="search-bar">
@@ -90,8 +71,8 @@ export default class SearchBar extends React.Component<Props, State> {
                 </div>
                 <div className="button-group">
                     <span>Search by</span>
-                    <button type="button" className={styles.title} onClick={this.onTitleButtonClick}>Title</button>
-                    <button type="button" className={styles.gener} onClick={this.onGenerButtonClick}>Gener (throws Error)</button>
+                    <Button title="Title" selected={state.searchBy == criteria.TITLE} onClick={this.onTitleButtonClick} />
+                    <Button title="Genre" selected={state.searchBy == criteria.GENRE} onClick={this.onGenerButtonClick} />
                 </div>
             </div>
         )
