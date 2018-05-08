@@ -1,6 +1,7 @@
 //@flow
 
 import React, { Component } from 'react'
+import MovieTitle from './movie_title'
 import type { Movie } from '../movie'
 import '../styles/common.css'
 
@@ -16,10 +17,9 @@ const MovieDetails = ({movie}: Props) => {
                     <img className="w-100" src={movie.imageURL} />
                 </div>
                 <div className="col-md-8 card-body movie-details-body">
-                    <h6 className="card-title">
-                        <span className="">{movie.title}</span>
-                        <span className="">{movie.releaseYear}</span>
-                    </h6>
+                    <div className="movie-details-title-box">
+                        <MovieTitle movie={movie} badgeAlign="left" />
+                    </div>
                     <p className="card-text mb-2 text-muted">
                         {movie.genre}
                     </p>

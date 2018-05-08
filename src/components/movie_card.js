@@ -1,25 +1,20 @@
 //@flow
 
 import React, { Component } from 'react'
+import MovieTitle from './movie_title'
 import type { Movie } from '../movie'
 import '../styles/common.css'
 
-type MovieCardProps = {
+type Props = {
     movie: Movie
 }
 
-const MovieCard = ({movie}: MovieCardProps) => {
-    // TODO: provide planceholder if image loading failed
-
+const MovieCard = ({ movie }: Props) => {
     return (
         <div className="card movie-card">
             <img className="card-img-top" src={movie.imageURL} />
             <div className="card-body movie-card-body">
-                <h6 className="card-title textbox">
-                    <span className="alignleft">{movie.title}</span>
-                    <span className="badge badge-light alignright">{movie.releaseYear}</span>
-                    <div className="alighclear" />
-                </h6>
+                <MovieTitle movie={movie} />
                 <p className="card-subtitle mb-2 text-muted">
                     {movie.genre}
                 </p>

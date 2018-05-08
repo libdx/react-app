@@ -19,9 +19,20 @@
     clear: both;
 }
 
+.badge-margin-left {
+    margin-left: 10px;
+}
+
 .movie-card {
     width: 14rem;
     border: 0px;
+}
+
+.movie-details-body {
+}
+
+.movie-details-title-box {
+    padding-left: 15px;
 }
 
 .card-body {
