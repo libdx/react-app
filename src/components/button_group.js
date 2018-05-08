@@ -3,22 +3,27 @@
 import React from 'react'
 import Button from './button'
 
-type Props = { 
-    title: string,
-    buttonTitles: Array<string>,
-    selectedIndex: number,
-    onClick?: (index: number) => void
+export type ButtonRecord = {
+    id: string,
+    title: string
 }
 
-const ButtonGroup = ({ title, buttonTitles, selectedIndex, onClick }: Props) => {
+type Props = { 
+    title: string,
+    buttons: Array<ButtonRecord>,
+    selectedButtonId: string,
+    onClick?: (id: any) => void
+}
 
-    const titleToButton = (title, index) => {
+const ButtonGroup = ({ title, buttons, selectedButtonId, onClick }: Props) => {
+
+    const recordToButton = ({ id, title }: ButtonRecord) => {
         return (
             <Button
-                key={index}
+                key={id}
                 title={title}
-                selected={index === selectedIndex}
-                onClick={e => onClick && onClick(index) }
+                selected={id === selectedButtonId}
+                onClick={e => onClick && onClick(id) }
             />
         )
     }
@@ -26,7 +31,7 @@ const ButtonGroup = ({ title, buttonTitles, selectedIndex, onClick }: Props) => 
     return (
         <div className="button-group">
             <span>{title}</span>
-            {buttonTitles.map(titleToButton)}
+            {buttons.map(recordToButton)}
         </div>
     )
 }

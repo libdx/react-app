@@ -9,7 +9,8 @@ import Header from '../components/header'
 import MovieGrid from '../components/movie_grid'
 import Footer from '../components/footer'
 
-import { forrest } from '../data/mocks'
+import type { ButtonRecord } from '../components/button_group'
+import { forrest, movies } from '../data/mocks'
 
 const criteria = {
     TITLE: "TITLE",
@@ -17,6 +18,11 @@ const criteria = {
 }
 
 const criteriaOrder = [criteria.TITLE, criteria.GENRE]
+
+const buttonRecords: Array<ButtonRecord> = [
+    {id: criteria.TITLE, title: "Title"},
+    {id: criteria.GENRE, title: "Genre"}
+]
 
 type Criteria = $Keys<typeof criteria>
 
@@ -30,9 +36,7 @@ type State = {
 
 class IndexPage extends React.Component<Props, State> {
     onTermChange: (term: string) => void
-    onTitleButtonClick: () => void
-    onGenerButtonClick: () => void
-    onButtonGroupClick: (index: number) => void
+    onButtonGroupClick: (id: Criteria) => void
 
     constructor(props: Props) {
         super(props)
@@ -41,14 +45,11 @@ class IndexPage extends React.Component<Props, State> {
             searchBy: criteria.TITLE
         }
         this.onTermChange = this.onTermChange.bind(this)
-
         this.onButtonGroupClick = this.onButtonGroupClick.bind(this)
     }
 
-    onButtonGroupClick(index: number): void {
-        const searchBy = criteriaOrder[index]
-
-        console.log(searchBy)
+    onButtonGroupClick(id: Criteria): void {
+        const searchBy = id
         this.setState({ searchBy })
     }
 
@@ -66,14 +67,14 @@ class IndexPage extends React.Component<Props, State> {
                     <SearchPanel term={term} onChange={this.onTermChange} >
                         <ButtonGroup
                             title="Search by"
-                            buttonTitles={["Title", "Genre"]}
-                            selectedIndex={criteriaOrder.indexOf(searchBy)}
+                            buttons={buttonRecords}
+                            selectedButtonId={searchBy}
                             onClick={this.onButtonGroupClick}
                         />
                     </SearchPanel>
                 </Header>
                 <StatusBar title="Search results" />
-                <MovieGrid movies={[forrest, forrest, forrest, forrest, forrest, forrest]} />
+                <MovieGrid movies={movies} />
                 <Footer brand={brand} />
             </div>
         )
