@@ -21,7 +21,7 @@ const MovieDetails = ({movie}: Props) => {
                         <span className="">{movie.releaseYear}</span>
                     </h6>
                     <p className="card-text mb-2 text-muted">
-                        {movie.gener}
+                        {movie.genre}
                     </p>
                     <p>
                         {movie.description}

@@ -10,7 +10,7 @@ type Props = {
     onClick?: (index: number) => void
 }
 
-const FilterButtonGroup = ({ title, buttonTitles, selectedIndex, onClick }: Props) => {
+const ButtonGroup = ({ title, buttonTitles, selectedIndex, onClick }: Props) => {
 
     const titleToButton = (title, index) => {
         return (
@@ -31,5 +31,5 @@ const FilterButtonGroup = ({ title, buttonTitles, selectedIndex, onClick }: Prop
     )
 }
 
-export default FilterButtonGroup
+export default ButtonGroup
 

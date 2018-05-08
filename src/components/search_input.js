@@ -13,9 +13,7 @@ type Props = {
 const SearchInput = ({ term, placeholder, buttonTitle, onChange }: Props) => {
 
     const _onChange = (event) => {
-        if (onChange) {
-            onChange(event.target.value)
-        }
+        onChange && onChange(event.target.value)
     }
 
     return (

@@ -21,7 +21,7 @@ const MovieCard = ({movie}: MovieCardProps) => {
                     <div className="alighclear" />
                 </h6>
                 <p className="card-subtitle mb-2 text-muted">
-                    {movie.gener}
+                    {movie.genre}
                 </p>
             </div>
         </div>

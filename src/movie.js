@@ -4,7 +4,7 @@ export type Movie = {
     imageURL: string,
     title: string,
     releaseYear: string,
-    gener: string,
+    genre: string,
     description: string,
 }
 
