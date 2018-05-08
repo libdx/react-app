@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import MovieTitle from './movie_title'
+import MovieGenreLabel from './movie_genre_label'
 import type { Movie } from '../movie'
 import '../styles/common.css'
 
@@ -15,9 +16,7 @@ const MovieCard = ({ movie }: Props) => {
             <img className="card-img-top" src={movie.imageURL} />
             <div className="card-body movie-card-body">
                 <MovieTitle movie={movie} />
-                <p className="card-subtitle mb-2 text-muted">
-                    {movie.genre}
-                </p>
+                <MovieGenreLabel movie={movie} />
             </div>
         </div>
     )
