@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import MovieTitle from './movie_title'
 import MovieGenreLabel from './movie_genre_label'
+import MoviePoster from './movie_poster'
 import type { Movie } from '../movie'
 import '../styles/common.css'
 
@@ -15,7 +16,7 @@ const MovieDetails = ({movie}: Props) => {
         <div className="card movie-details">
             <div className="row">
                 <div className="col-md-4">
-                    <img className="w-100" src={movie.imageURL} />
+                    <MoviePoster movie={movie} />
                 </div>
                 <div className="col-md-8 card-body movie-details-body">
                     <div className="movie-details-title-box">
