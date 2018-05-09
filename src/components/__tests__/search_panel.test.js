@@ -1,4 +1,5 @@
 import React from 'react'
+import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 import SearchPanel from '../search_panel'
 
@@ -24,5 +25,10 @@ describe('SearchPanel ', () => {
     it('renders children', () => {
         const child = component.find('#test-child-id')
         expect(child.exists()).toBe(true)
+    })
+
+    it('renders correctly', () => {
+        const tree = renderer.create(<SearchPanel>{child}</SearchPanel>).toJSON()
+        expect(tree).toMatchSnapshot()
     })
 })
