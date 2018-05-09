@@ -6,7 +6,7 @@ describe('Button', () => {
 
     const record = {id: '42', title: "A", selected: false, kind: INFO }
 
-    const component = (
+    const element = (
         <Button
             id={record.id}
             title={record.title}
@@ -15,13 +15,13 @@ describe('Button', () => {
         />
     )
 
-    let wrapper
+    let component
 
     beforeEach(() => {
-        wrapper = shallow(component)
+        component = shallow(element)
     })
 
     it('has correct title', () => {
-        expect(wrapper.text()).toEqual(record.title)
+        expect(component.text()).toEqual(record.title)
     })
 })
