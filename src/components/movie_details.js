@@ -6,7 +6,6 @@ import MovieGenreLabel from './movie_genre_label'
 import MoviePoster from './movie_poster'
 import MovieDescription from './movie_description'
 import type { Movie } from '../movie'
-import '../styles/common.css'
 
 type Props = {
     movie: Movie
