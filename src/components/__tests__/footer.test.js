@@ -2,11 +2,6 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import Footer from '../footer'
 
-import { configure } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-
-configure({ adapter: new Adapter() })
-
 describe('Footer', () => {
 
     const brand = 'Brand'
@@ -19,6 +14,6 @@ describe('Footer', () => {
     it('has brand label', () => {
         const span = component.find('span') 
 
-        expect(span.exists()).toBeTruthy()
+        expect(span.exists()).toBe(true)
     })
 })
