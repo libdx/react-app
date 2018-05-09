@@ -6,14 +6,18 @@ describe('Footer', () => {
 
     const brand = 'Brand'
     let component
+    let label
 
     beforeEach(() => {
         component = shallow(<Footer brand={brand} />)
+        label = component.find('.brand-label') 
     })
 
     it('has brand label', () => {
-        const span = component.find('span') 
+        expect(label.exists()).toBe(true)
+    })
 
-        expect(span.exists()).toBe(true)
+    it('shows correct brand text', () => {
+        expect(label.text()).toEqual(brand)
     })
 })
