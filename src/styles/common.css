@@ -1,0 +1,93 @@
+.textbox {
+    width: 100%;
+    padding: 0px;
+}
+
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+}
+
+.alignbottom {
+    float: bottom;
+}
+
+.alighclear {
+    clear: both;
+}
+
+.badge-margin-left {
+    margin-left: 10px;
+}
+
+.movie-card {
+    width: 14rem;
+    border: 0px;
+}
+
+.movie-details-body {
+}
+
+.movie-details-title-box {
+    padding-left: 15px;
+}
+
+.card-body {
+    padding: 0.25rem;
+}
+
+.card-title {
+    margin-bottom: 0.5rem;
+}
+
+.search-bar .button-group {
+   padding: 10px 15px; 
+}
+
+.search-bar .button-group button {
+    margin: 0px 15px;
+}
+
+.status-bar {
+    border: 1px solid #868e96;
+    margin-bottom: 16px
+}
+
+.status-bar span {
+    padding: 5px 30px;
+}
+
+.header {
+    border: 1px solid #868e96;
+}
+
+.header p.brand {
+    color: #868e96;
+}
+
+.header p.title {
+    color: #868e96;
+}
+
+.header p {
+    padding: 5px 15px;
+}
+
+.footer {
+    border: 1px solid #868e96;
+}
+
+.footer span {
+    color: #868e96;
+    padding: 0px 15px;
+}
+
+.empty-state p {
+    padding: 200px 0px;
+    text-align: center;
+    font-size: 24pt;
+} 
+
