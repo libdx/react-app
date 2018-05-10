@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import renderer from 'react-test-renderer'
 import ButtonGroup from '../button_group'
 
 describe('ButtonGroup', () => {
@@ -11,12 +12,13 @@ describe('ButtonGroup', () => {
     ]
 
     let component
+    let element
     let onClick
 
     beforeEach(() => {
         onClick = jest.fn()
 
-        component = shallow(
+        element = (
             <ButtonGroup 
                 title={title}
                 buttons={records}
@@ -24,6 +26,8 @@ describe('ButtonGroup', () => {
                 onClick={onClick}
             />
         )
+
+        component = shallow(element)
     })
 
     it('has correct number of buttons', () => {
@@ -46,6 +50,11 @@ describe('ButtonGroup', () => {
         const button = component.find('Button').at(1)
         button.simulate('click')
         expect(onClick).toBeCalledWith(records[1].id)
+    })
+
+    it('renders correctly', () => {
+        const tree = renderer.create(element).toJSON()
+        expect(tree).toMatchSnapshot()
     })
 })
 

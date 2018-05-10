@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import renderer from 'react-test-renderer'
 import Button, { INFO }  from '../button'
 
 describe('Button', () => {
@@ -32,5 +33,10 @@ describe('Button', () => {
     it('passes correct id on click', () => {
         component.simulate('click')
         expect(onClick).toBeCalledWith(record.id)
+    })
+
+    it('renders correctly', () => {
+        const tree = renderer.create(element).toJSON()
+        expect(tree).toMatchSnapshot()
     })
 })
