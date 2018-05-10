@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusBar renders correctly 1`] = `
+<div
+  className="status-bar"
+>
+  <div
+    className="row"
+  >
+    <span
+      className="col-6"
+    >
+      A Title
+    </span>
+    <span
+      className="col-2"
+    >
+      Sort by
+    </span>
+    <span
+      className="col-2"
+    >
+      release date
+    </span>
+    <span
+      className="col-2"
+    >
+      rating
+    </span>
+  </div>
+</div>
+`;
