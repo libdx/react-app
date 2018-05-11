@@ -3,6 +3,7 @@
 import * as React from 'react'
 
 type Props = {
+    errorMessage?: string,
     children?: React.Node
 }
 
@@ -10,7 +11,13 @@ type State = {
     hasError: boolean,
 }
 
+const ERROR_MESSAGE="Oops something went wront!"
+
 export default class ErrorBoundary extends React.Component<Props, State> {
+    static defaultProps: Props = {
+        errorMessage: ERROR_MESSAGE
+    }
+
     constructor(props: Props) {
         super(props)
         this.state = {
@@ -26,7 +33,7 @@ export default class ErrorBoundary extends React.Component<Props, State> {
     render() {
         return(
             <div>
-                {this.state.hasError ? "Oops something went wront!" : this.props.children}
+                {this.state.hasError ? this.props.errorMessage : this.props.children}
             </div>
         )
     }
