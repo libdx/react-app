@@ -8,7 +8,6 @@ import Footer from './components/footer'
 import EmptyState from './components/empty_state'
 import MovieDetails from './components/movie_details'
 import IndexPage from './pages/index_page.js'
-import './styles/common.css'
 
 import { forrest } from './data/mocks'
 
