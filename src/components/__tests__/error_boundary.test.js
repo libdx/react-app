@@ -30,13 +30,17 @@ describe('ErrorBoundary ', () => {
     //it('shows error message when child throws', () => {
     //    const errorMessage='Error Message'
 
+    //    const spy = jest.spyOn(ErrorBoundary.prototype, 'componentDidCatch')
     //    const component = mount(
     //        <ErrorBoundary errorMessage={errorMessage}>
     //            <Broken />
     //        </ErrorBoundary>
     //    )
-    //    const text = component.text()
-    //    expect(text).toEqual(expect.stringContaining(errorMessage))
+
+    //    expect(ErrorBoundary.prototype.componentDidCatch).toHaveBeenCalled()
+
+    //    //const text = component.text()
+    //    //expect(text).toEqual(expect.stringContaining(errorMessage))
     //})
 
     it('shows error message', () => {
