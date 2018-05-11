@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetails renders correctly 1`] = `
+<div
+  className="card movie-details"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-4"
+    >
+      <img
+        className="card-img-top poster-img"
+        src="http://t0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu"
+      />
+    </div>
+    <div
+      className="col-md-8 card-body movie-details-body"
+    >
+      <div
+        className="movie-details-title-box"
+      >
+        <h6
+          className="card-title textbox"
+        >
+          <span
+            className="alignleft"
+          >
+            Forrest Gump
+          </span>
+          <span
+            className="badge badge-light badge-margin-left"
+          >
+            1994
+          </span>
+          <div
+            className="alighclear"
+          />
+        </h6>
+      </div>
+      <p
+        className="card-subtitle mb-2 text-muted"
+      >
+        Comedy-drama
+      </p>
+      <p>
+         
+        Slow-witted Forrest Gump (Tom Hanks) has never thought of himself as disadvantaged, and thanks to his supportive mother (Sally Field), he leads anything but a restricted life. Whether dominating on the gridiron as a college football star, fighting in Vietnam or captaining a shrimp boat, Forrest inspires people with his childlike optimism. But one person Forrest cares about most may be the most difficult to save -- his childhood love, the sweet but troubled Jenny (Robin Wright).
+         
+      </p>
+    </div>
+  </div>
+</div>
+`;

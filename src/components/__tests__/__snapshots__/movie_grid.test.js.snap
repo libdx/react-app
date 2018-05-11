@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieGrid renders correctly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-md-4 col-sm-6"
+  >
+    <div
+      className="card movie-card"
+    >
+      <img
+        className="card-img-top poster-img"
+        src="http://t0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu"
+      />
+      <div
+        className="card-body movie-card-body"
+      >
+        <h6
+          className="card-title textbox"
+        >
+          <span
+            className="alignleft"
+          >
+            Forrest Gump
+          </span>
+          <span
+            className="badge badge-light alignright"
+          >
+            1994
+          </span>
+          <div
+            className="alighclear"
+          />
+        </h6>
+        <p
+          className="card-subtitle mb-2 text-muted"
+        >
+          Comedy-drama
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="col-md-4 col-sm-6"
+  >
+    <div
+      className="card movie-card"
+    >
+      <img
+        className="card-img-top poster-img"
+        src="http://t0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu"
+      />
+      <div
+        className="card-body movie-card-body"
+      >
+        <h6
+          className="card-title textbox"
+        >
+          <span
+            className="alignleft"
+          >
+            Forrest Gump
+          </span>
+          <span
+            className="badge badge-light alignright"
+          >
+            1994
+          </span>
+          <div
+            className="alighclear"
+          />
+        </h6>
+        <p
+          className="card-subtitle mb-2 text-muted"
+        >
+          Comedy-drama
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="col-md-4 col-sm-6"
+  >
+    <div
+      className="card movie-card"
+    >
+      <img
+        className="card-img-top poster-img"
+        src="http://t0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu"
+      />
+      <div
+        className="card-body movie-card-body"
+      >
+        <h6
+          className="card-title textbox"
+        >
+          <span
+            className="alignleft"
+          >
+            Forrest Gump
+          </span>
+          <span
+            className="badge badge-light alignright"
+          >
+            1994
+          </span>
+          <div
+            className="alighclear"
+          />
+        </h6>
+        <p
+          className="card-subtitle mb-2 text-muted"
+        >
+          Comedy-drama
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="col-md-4 col-sm-6"
+  >
+    <div
+      className="card movie-card"
+    >
+      <img
+        className="card-img-top poster-img"
+        src="http://t0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu"
+      />
+      <div
+        className="card-body movie-card-body"
+      >
+        <h6
+          className="card-title textbox"
+        >
+          <span
+            className="alignleft"
+          >
+            Forrest Gump
+          </span>
+          <span
+            className="badge badge-light alignright"
+          >
+            1994
+          </span>
+          <div
+            className="alighclear"
+          />
+        </h6>
+        <p
+          className="card-subtitle mb-2 text-muted"
+        >
+          Comedy-drama
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="col-md-4 col-sm-6"
+  >
+    <div
+      className="card movie-card"
+    >
+      <img
+        className="card-img-top poster-img"
+        src="http://t0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu"
+      />
+      <div
+        className="card-body movie-card-body"
+      >
+        <h6
+          className="card-title textbox"
+        >
+          <span
+            className="alignleft"
+          >
+            Forrest Gump
+          </span>
+          <span
+            className="badge badge-light alignright"
+          >
+            1994
+          </span>
+          <div
+            className="alighclear"
+          />
+        </h6>
+        <p
+          className="card-subtitle mb-2 text-muted"
+        >
+          Comedy-drama
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="col-md-4 col-sm-6"
+  >
+    <div
+      className="card movie-card"
+    >
+      <img
+        className="card-img-top poster-img"
+        src="http://t0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu"
+      />
+      <div
+        className="card-body movie-card-body"
+      >
+        <h6
+          className="card-title textbox"
+        >
+          <span
+            className="alignleft"
+          >
+            Forrest Gump
+          </span>
+          <span
+            className="badge badge-light alignright"
+          >
+            1994
+          </span>
+          <div
+            className="alighclear"
+          />
+        </h6>
+        <p
+          className="card-subtitle mb-2 text-muted"
+        >
+          Comedy-drama
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
