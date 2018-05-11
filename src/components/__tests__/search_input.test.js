@@ -7,17 +7,21 @@ describe('SearchPanel ', () => {
     let component
     let input
     let button
+    let onChange
 
     const term = 'A'
     const placeholder = 'P'
     const buttonTitle = 'T'
 
     beforeEach(() => {
+        onChange = jest.fn()
+
         component = shallow(
             <SearchInput
                 term={term}
                 placeholder={placeholder}
                 buttonTitle={buttonTitle}
+                onChange={onChange}
             />
         )
         input = component.find('input[type="text"]') 
@@ -40,7 +44,15 @@ describe('SearchPanel ', () => {
         expect(button.exists()).toBe(true)
     })
 
+    it('passes correct text on change', () => {
+        const newTerm = 'abcde'
+        const event = { target: { value: newTerm } }
+        input.simulate('change', event)
+        expect(onChange).toBeCalledWith(newTerm)
+    })
+
     it('shows corrent button title', () => {
         expect(button.props().title).toEqual(buttonTitle)
     })
 })
+

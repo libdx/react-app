@@ -1,17 +1,20 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import SearchPanel from '../search_panel'
 
 describe('SearchPanel ', () => {
 
     let component
+    let onChange
 
     const child = <div id="test-child-id" />
 
     beforeEach(() => {
+        onChange = jest.fn()
+
         component = shallow(
-            <SearchPanel>
+            <SearchPanel onChange={onChange}>
                 {child}
             </SearchPanel>
         )
@@ -27,8 +30,17 @@ describe('SearchPanel ', () => {
         expect(child.exists()).toBe(true)
     })
 
+    it('passes correct text on change', () => {
+        const searchInput = component.find('SearchInput')
+    
+        const newTerm = 'abcde'
+        searchInput.simulate('change', newTerm)
+        expect(onChange).toBeCalledWith(newTerm)
+    })
+
     it('renders correctly', () => {
-        const tree = renderer.create(<SearchPanel>{child}</SearchPanel>).toJSON()
+        let element = <SearchPanel>{child}</SearchPanel>
+        const tree = renderer.create(element).toJSON()
         expect(tree).toMatchSnapshot()
     })
 })
