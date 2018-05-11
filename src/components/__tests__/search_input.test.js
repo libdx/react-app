@@ -1,9 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import renderer from 'react-test-renderer'
 import SearchInput from '../search_input'
 
 describe('SearchPanel ', () => {
 
+    let element
     let component
     let input
     let button
@@ -16,7 +18,7 @@ describe('SearchPanel ', () => {
     beforeEach(() => {
         onChange = jest.fn()
 
-        component = shallow(
+        element = (
             <SearchInput
                 term={term}
                 placeholder={placeholder}
@@ -24,6 +26,7 @@ describe('SearchPanel ', () => {
                 onChange={onChange}
             />
         )
+        component = shallow(element)
         input = component.find('input[type="text"]') 
         button = component.find('Button') 
     })
@@ -53,6 +56,11 @@ describe('SearchPanel ', () => {
 
     it('shows corrent button title', () => {
         expect(button.props().title).toEqual(buttonTitle)
+    })
+
+    it('renders correctly', () => {
+        const tree = renderer.create(element).toJSON()
+        expect(tree).toMatchSnapshot()
     })
 })
 
