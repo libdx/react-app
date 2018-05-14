@@ -5,7 +5,7 @@ exports[`SearchPanel  renders correctly 1`] = `
   className="search-bar"
 >
   <div
-    className="input-group mb-3"
+    className="input-group mb-3 search-input"
   >
     <input
       className="form-control"
