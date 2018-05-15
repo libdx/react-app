@@ -47,7 +47,8 @@
     "build": "webpack --mode production",
     "flow": "flow",
     "test": "jest",
-    "e2e-test": "casperjs test e2e-tests"
+    "e2e-test": "casperjs test e2e-tests",
+    "coverage": "jest --coverage"
   },
   "jest": {
     "collectCoverageFrom": [
