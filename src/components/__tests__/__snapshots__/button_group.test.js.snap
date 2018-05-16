@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup renders correctly 1`] = `
+<div
+  className="button-group"
+>
+  <span>
+    A Title
+  </span>
+  <button
+    className="btn btn-outline-info"
+    onClick={[Function]}
+    type="button"
+  >
+    abc
+  </button>
+  <button
+    className="btn btn-info"
+    onClick={[Function]}
+    type="button"
+  >
+    yxz
+  </button>
+</div>
+`;

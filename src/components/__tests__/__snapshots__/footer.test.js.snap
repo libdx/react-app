@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+<div
+  className="footer"
+>
+  <span
+    className="brand-label"
+  >
+    Brand
+  </span>
+</div>
+`;

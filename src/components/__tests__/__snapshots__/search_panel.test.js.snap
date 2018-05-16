@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchPanel  renders correctly 1`] = `
+<div
+  className="search-bar"
+>
+  <div
+    className="input-group mb-3 search-input"
+  >
+    <input
+      className="form-control"
+      onChange={[Function]}
+      placeholder="Search"
+      type="text"
+      value={undefined}
+    />
+    <div
+      className="input-group-append"
+    >
+      <button
+        className="btn btn-outline-secondary"
+        onClick={[Function]}
+        type="button"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+  <div
+    id="test-child-id"
+  />
+</div>
+`;

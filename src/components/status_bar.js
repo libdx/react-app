@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../styles/common.css'
 
 type Props = {
     title: string

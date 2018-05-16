@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 const EmptyState = () => {
     return (
         <div className="empty-state">
-            <p>No movies found</p>
+            <p className="not-found-label">No movies found</p>
         </div>
     )
 }

@@ -10,7 +10,7 @@ type HeaderProps = {
 const Header = (props: HeaderProps) => {
     return (
         <div className="header">
-            <p className="brand">
+            <p className="brand-label">
                 {props.brand}
             </p>
             <p className="title">

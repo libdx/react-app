@@ -35,6 +35,14 @@
     padding-left: 15px;
 }
 
+.brand-label {
+    font-size: 140%;
+}
+
+.not-found-label {
+    font-size: 400%;
+}
+
 .card-body {
     padding: 0.25rem;
 }

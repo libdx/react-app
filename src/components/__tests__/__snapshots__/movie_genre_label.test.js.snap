@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieGenreLabel renders correctly 1`] = `
+<p
+  className="card-subtitle mb-2 text-muted"
+>
+  Comedy-drama
+</p>
+`;

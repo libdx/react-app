@@ -12,14 +12,12 @@ import Footer from '../components/footer'
 import type { ButtonRecord } from '../components/button_group'
 import { forrest, movies } from '../data/mocks'
 
-const criteria = {
+export const criteria = {
     TITLE: "TITLE",
     GENRE: "GENRE"
 }
 
-const criteriaOrder = [criteria.TITLE, criteria.GENRE]
-
-const buttonRecords: Array<ButtonRecord> = [
+export const buttonRecords: Array<ButtonRecord> = [
     {id: criteria.TITLE, title: "Title"},
     {id: criteria.GENRE, title: "Genre"}
 ]

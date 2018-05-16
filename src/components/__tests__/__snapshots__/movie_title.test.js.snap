@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieTitle renders correctly 1`] = `
+<h6
+  className="card-title textbox"
+>
+  <span
+    className="alignleft"
+  >
+    Forrest Gump
+  </span>
+  <span
+    className="badge badge-light alignright"
+  >
+    1994
+  </span>
+  <div
+    className="alighclear"
+  />
+</h6>
+`;

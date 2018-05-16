@@ -8,7 +8,7 @@ type Props = {
 }
 
 const MoviePoster = ({ movie }: Props) => {
-    return <img className="card-img-top" src={movie.imageURL} />
+    return <img className="card-img-top poster-img" src={movie.imageURL} />
 }
 
 export default MoviePoster

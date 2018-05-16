@@ -17,7 +17,7 @@ const SearchInput = ({ term, placeholder, buttonTitle, onChange }: Props) => {
     }
 
     return (
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 search-input">
             <input 
                 type="text"
                 className="form-control"
