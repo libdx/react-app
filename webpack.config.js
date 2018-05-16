@@ -2,6 +2,7 @@ const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin")
+const FlowWebpackPlugin = require('flow-webpack-plugin')
 
 module.exports = function(env, options) {
     const isProduction = options.mode === "production"
@@ -49,7 +50,8 @@ module.exports = function(env, options) {
                 filename: './index.html'
             }),
             new ExtractTextPlugin("[name].css"),
-            new CaseSensitivePathsPlugin()
+            new CaseSensitivePathsPlugin(),
+            new FlowWebpackPlugin()
         ]
     }
     return config
