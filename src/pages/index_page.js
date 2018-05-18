@@ -16,13 +16,13 @@ import type { Movie } from '../movie'
 import { forrest, movies as mockedMovies } from '../data/mocks'
 
 export const criteria = {
-    TITLE: "TITLE",
-    GENRE: "GENRE"
+    TITLE: "title",
+    GENRE: "genres"
 }
 
 export const buttonRecords: Array<ButtonRecord> = [
-    {id: criteria.TITLE, title: "Title"},
-    {id: criteria.GENRE, title: "Genre"}
+    {id: "TITLE", title: "Title"},
+    {id: "GENRE", title: "Genre"}
 ]
 
 type Criteria = $Keys<typeof criteria>
@@ -36,6 +36,19 @@ type State = {
     movies: Array<Movie>,
 }
 
+const fetchMovies = (term: string, searchBy: Criteria): Promise<Array<Movie>> => {
+    const url = `http://react-cdp-api.herokuapp.com/movies?search=${term}&searchBy=${criteria[searchBy]}`
+
+    const parse = (json) => {
+       return json['data']
+    }
+
+    return axios.get(url)
+        .catch(console.error)
+        .then(res => res.data)
+        .then(parse)
+}
+
 class IndexPage extends React.Component<Props, State> {
     onTermChange: (term: string) => void
     onButtonGroupClick: (id: Criteria) => void
@@ -43,38 +56,38 @@ class IndexPage extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
-            term: '',
-            searchBy: criteria.TITLE,
+            term: 'matrix',
+            searchBy: 'TITLE',
             movies: mockedMovies
         }
         this.onTermChange = this.onTermChange.bind(this)
         this.onButtonGroupClick = this.onButtonGroupClick.bind(this)
     }
 
+    searchMovies() {
+        const { term, searchBy } = this.state
+
+        fetchMovies(term, searchBy)
+            .then(movies => this.setState({ movies }) )
+    }
+
     componentDidMount() {
-        const url = 'http://react-cdp-api.herokuapp.com/movies?search=matrix&searchBy=title'
-
-        const parse = (json) => {
-           return json['data']
-        }
-
-        axios.get(url)
-            .then( res => res.data )
-            .then(parse)
-            .then( array => {
-                console.log(array) 
-                this.setState({ movies: array })
-            })
-            .catch( err => console.log(err) )
+        this.searchMovies()
     }
 
     onButtonGroupClick(id: Criteria): void {
         const searchBy = id
-        this.setState({ searchBy })
+        this.setState({ searchBy }, () => {
+            console.log(this.state.searchBy)
+            this.searchMovies()
+        })
     }
 
     onTermChange(term: string) {
-        this.setState({ term })
+        this.setState({ term }, () => {
+            console.log(this.state.term)
+            this.searchMovies()
+        })
     }
 
     render() {

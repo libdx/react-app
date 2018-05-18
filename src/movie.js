@@ -15,24 +15,24 @@ export type Movie = {
     genres: Array<string>,
 }
 
-export function genre(movie: Movie): string {
+export const genre = (movie: Movie): string => {
     return movie.genres.join(', ')
 }
 
-export function title(movie: Movie): string {
+export const title = (movie: Movie): string => {
     return movie.title
 }
 
-export function releaseYear(movie: Movie): number {
+export const releaseYear = (movie: Movie): number => {
     const date = new Date(movie.release_date)
     return date.getFullYear()
 }
 
-export function overview(movie: Movie): string {
+export const overview = (movie: Movie): string => {
     return movie.overview
 }
 
-export function posterURL(movie: Movie): string {
+export const posterURL = (movie: Movie): string => {
     return movie.poster_path
 }
 
