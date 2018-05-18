@@ -1,6 +1,7 @@
 //@flow
 
 import React from 'react'
+import { posterURL } from '../movie'
 import type { Movie } from '../movie'
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 }
 
 const MoviePoster = ({ movie }: Props) => {
-    return <img className="card-img-top poster-img" src={movie.imageURL} />
+    return <img className="card-img-top poster-img" src={posterURL(movie)} />
 }
 
 export default MoviePoster

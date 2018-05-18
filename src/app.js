@@ -20,11 +20,6 @@ class App extends Component<AppProps> {
             <div className="container">
                 <ErrorBoundary>
                     <IndexPage />
-                    <EmptyState />
-                    <Header brand={brand}>
-                        <MovieDetails movie={forrest} />
-                    </Header>
-                    <Footer brand={brand} />
                 </ErrorBoundary>
             </div>
         )

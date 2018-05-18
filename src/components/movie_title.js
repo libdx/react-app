@@ -1,6 +1,7 @@
 //@flow
 
 import React from 'react'
+import { title, releaseYear } from '../movie'
 
 import type { Movie } from '../movie'
 
@@ -12,14 +13,12 @@ type Props = {
 }
 
 const MovieTitle = ({ movie, badgeAlign="right" }: Props) => {
-    const { title, releaseYear } = movie
-
     const badgeAlignClass = badgeAlign == "right" ? "alignright" : "badge-margin-left"
 
     return (
         <h6 className="card-title textbox">
-            <span className="alignleft">{title}</span>
-            <span className={`badge badge-light ${badgeAlignClass}`}>{releaseYear}</span>
+            <span className="alignleft">{title(movie)}</span>
+            <span className={`badge badge-light ${badgeAlignClass}`}>{releaseYear(movie)}</span>
             <div className="alighclear" />
         </h6>
     )

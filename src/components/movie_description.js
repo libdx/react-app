@@ -1,6 +1,7 @@
 //@flow
 
 import React from 'react'
+import { overview } from '../movie'
 import type { Movie } from '../movie'
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 }
 
 const MovieDescription = ({ movie }: Props) => {
-    return <p> {movie.description} </p>
+    return <p> {overview(movie)} </p>
 }
 
 export default MovieDescription

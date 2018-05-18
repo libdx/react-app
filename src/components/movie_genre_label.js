@@ -1,6 +1,7 @@
 //@flow
 
 import React from 'react'
+import { genre } from '../movie'
 import type { Movie } from '../movie'
 
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
 const MovieGenreLabel = ({ movie }: Props) => {
     return (
         <p className="card-subtitle mb-2 text-muted">
-            {movie.genre}
+            {genre(movie)}
         </p>
     )
 }
