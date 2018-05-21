@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import axios from 'axios'
+import _ from 'lodash'
 
 import Button from '../components/button'
 import StatusBar from '../components/status_bar'
@@ -52,6 +53,7 @@ const fetchMovies = (term: string, searchBy: Criteria): Promise<Array<Movie>> =>
 class IndexPage extends React.Component<Props, State> {
     onTermChange: (term: string) => void
     onButtonGroupClick: (id: Criteria) => void
+    searchMovies: () => void
 
     constructor(props: Props) {
         super(props)
@@ -62,6 +64,7 @@ class IndexPage extends React.Component<Props, State> {
         }
         this.onTermChange = this.onTermChange.bind(this)
         this.onButtonGroupClick = this.onButtonGroupClick.bind(this)
+        this.searchMovies = _.debounce(this.searchMovies.bind(this), 300)
     }
 
     searchMovies() {
