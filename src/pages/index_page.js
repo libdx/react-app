@@ -12,6 +12,8 @@ import Header from '../components/header'
 import MovieGrid from '../components/movie_grid'
 import Footer from '../components/footer'
 
+import MovieResultsGrid from '../containers/movie_results_grid'
+
 import type { ButtonRecord } from '../components/button_group'
 import type { Movie } from '../movie'
 import { forrest, movies as mockedMovies } from '../data/mocks'
@@ -110,7 +112,7 @@ class IndexPage extends React.Component<Props, State> {
                     </SearchPanel>
                 </Header>
                 <StatusBar title="Search results" />
-                <MovieGrid movies={movies} />
+                <MovieResultsGrid movies={movies} />
                 <Footer brand={brand} />
             </div>
         )
