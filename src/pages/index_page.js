@@ -13,22 +13,13 @@ import MovieGrid from '../components/movie_grid'
 import Footer from '../components/footer'
 
 import MovieResultsGrid from '../containers/movie_results_grid'
+import FilterPanel from '../containers/filter_panel'
 
 import type { ButtonRecord } from '../components/button_group'
 import type { Movie } from '../movie'
+import type { Criteria } from '../types/criteria'
+import { criteria } from '../types/criteria'
 import { forrest, movies as mockedMovies } from '../data/mocks'
-
-export const criteria = {
-    TITLE: "title",
-    GENRE: "genres"
-}
-
-export const buttonRecords: Array<ButtonRecord> = [
-    {id: "TITLE", title: "Title"},
-    {id: "GENRE", title: "Genre"}
-]
-
-type Criteria = $Keys<typeof criteria>
 
 type Props = {
 }
@@ -102,14 +93,7 @@ class IndexPage extends React.Component<Props, State> {
         return (
             <div>
                 <Header brand={brand}>
-                    <SearchPanel term={term} onChange={this.onTermChange} >
-                        <ButtonGroup
-                            title="Search by"
-                            buttons={buttonRecords}
-                            selectedButtonId={searchBy}
-                            onClick={this.onButtonGroupClick}
-                        />
-                    </SearchPanel>
+                    <FilterPanel />
                 </Header>
                 <StatusBar title="Search results" />
                 <MovieResultsGrid movies={movies} />
@@ -118,6 +102,8 @@ class IndexPage extends React.Component<Props, State> {
         )
     }
 }
+
+//const mapStateToProps
 
 export default IndexPage
 

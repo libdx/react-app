@@ -20,5 +20,5 @@ ReactDOM.render(element, root)
 
 // tmp
 import { searchMovies } from './actions'
-store.dispatch(searchMovies('abc'))
+store.dispatch(searchMovies({ term: 'abc', searchBy: 'TITLE'} ))
 
