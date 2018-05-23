@@ -33,7 +33,7 @@ class IndexPage extends React.Component<Props, State> {
         return (
             <div>
                 <Header brand={brand}>
-                    <FilterPanel />
+                    <FilterPanel title="Search by"/>
                 </Header>
                 <StatusBar title="Search results" />
                 <MovieResultsGrid />

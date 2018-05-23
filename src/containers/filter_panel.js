@@ -15,7 +15,7 @@ const buttonRecords: Array<ButtonRecord> = [
 ]
 
 type Props = {
-    // title: string,
+    title: string,
     term: string,
     searchBy: Criteria,
     onChange?: (term: string, searchBy: Criteria) => void,
@@ -36,12 +36,12 @@ class FilterPanel extends Component<Props> {
     }
 
     render() {
-        const { term, searchBy } = this.props
+        const { title, term, searchBy } = this.props
 
         return (
             <SearchPanel term={term} onChange={this.onTermChange} >
                 <ButtonGroup
-                    title="Search by"
+                    title={title}
                     buttons={buttonRecords}
                     selectedButtonId={searchBy}
                     onClick={this.onButtonGroupClick}
@@ -51,7 +51,9 @@ class FilterPanel extends Component<Props> {
     }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
+    //...ownProps,
+    title: ownProps.title,
     term: state.filter.term,
     searchBy: state.filter.searchBy
 })
