@@ -1,21 +1,11 @@
-import { SEARCH_MOVIE } from '../actions'
-import { movies } from '../data/mocks'
-
-import type { Action as SearchMoviesAction } from '../actions'
-
-import type { Criteria } from '../types/criteria'
-
-type State = {
-    term: string,
-    searchBy: Criteria,
-}
+import { FILTER_MOVIES } from '../actions'
 
 const filter = (
-        state: State = {term: '', searchBy: 'TITLE'},
-        action: SearchMoviesAction
-    ): State => {
+        state = {term: '', searchBy: 'TITLE'},
+        action
+    ) => {
     switch (action.type) {
-        case SEARCH_MOVIE:
+        case FILTER_MOVIES:
             return action.payload
         default:
             return state

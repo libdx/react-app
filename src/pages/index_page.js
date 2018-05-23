@@ -21,74 +21,14 @@ import type { Criteria } from '../types/criteria'
 import { criteria } from '../types/criteria'
 import { forrest, movies as mockedMovies } from '../data/mocks'
 
-type Props = {
-}
+type Props = {}
 
-type State = {
-    term: string,
-    searchBy: Criteria,
-    movies: Array<Movie>,
-}
-
-const fetchMovies = (term: string, searchBy: Criteria): Promise<Array<Movie>> => {
-    const url = `http://react-cdp-api.herokuapp.com/movies?search=${term}&searchBy=${criteria[searchBy]}`
-
-    const parse = (json) => {
-       return json['data']
-    }
-
-    return axios.get(url)
-        .catch(console.error)
-        .then(res => res.data)
-        .then(parse)
-}
+type State = {}
 
 class IndexPage extends React.Component<Props, State> {
-    onTermChange: (term: string) => void
-    onButtonGroupClick: (id: Criteria) => void
-    searchMovies: () => void
-
-    constructor(props: Props) {
-        super(props)
-        this.state = {
-            term: 'matrix',
-            searchBy: 'TITLE',
-            movies: mockedMovies
-        }
-        this.onTermChange = this.onTermChange.bind(this)
-        this.onButtonGroupClick = this.onButtonGroupClick.bind(this)
-        this.searchMovies = _.debounce(this.searchMovies.bind(this), 300)
-    }
-
-    searchMovies() {
-        const { term, searchBy } = this.state
-
-        fetchMovies(term, searchBy)
-            .then(movies => this.setState({ movies }) )
-    }
-
-    componentDidMount() {
-        this.searchMovies()
-    }
-
-    onButtonGroupClick(id: Criteria): void {
-        const searchBy = id
-        this.setState({ searchBy }, () => {
-            console.log(this.state.searchBy)
-            this.searchMovies()
-        })
-    }
-
-    onTermChange(term: string) {
-        this.setState({ term }, () => {
-            console.log(this.state.term)
-            this.searchMovies()
-        })
-    }
 
     render() {
         const brand = "Movieseek"
-        const { term, searchBy, movies } = this.state
 
         return (
             <div>
@@ -96,14 +36,12 @@ class IndexPage extends React.Component<Props, State> {
                     <FilterPanel />
                 </Header>
                 <StatusBar title="Search results" />
-                <MovieResultsGrid movies={movies} />
+                <MovieResultsGrid />
                 <Footer brand={brand} />
             </div>
         )
     }
 }
-
-//const mapStateToProps
 
 export default IndexPage
 

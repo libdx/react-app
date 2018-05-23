@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import searchMovies from './search'
+import fetchMovies from './fetch'
 import filter from './filter'
 
 const rootReducer = combineReducers({
-    movies: searchMovies,
+    movies: fetchMovies,
     filter
 })
 
