@@ -1,0 +1,9 @@
+- fetch movies via middleware
+- (optional) pagenation
+- (optional) click on movie shows overview
+- sorting
+- tests
+    - update tests
+    - new tests
+- offline data storage
+
