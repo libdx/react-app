@@ -99,3 +99,10 @@
     font-size: 24pt;
 } 
 
+.sort-opt-active {
+    color: orange;
+}
+
+.sort-opt:hover {
+    cursor: pointer;
+}

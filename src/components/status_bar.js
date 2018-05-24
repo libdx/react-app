@@ -1,20 +1,45 @@
-import React, { Component } from 'react'
+//@flow
+import React, { PureComponent } from 'react'
 
-type Props = {
+type SortOption = {
+    id: string,
     title: string
 }
 
-const StatusBar = ({title}: Props) => {
-    return (
-        <div className="status-bar">
-            <div className="row">
-                <span className="col-6">{title}</span>
-                <span className="col-2">Sort by</span>
-                <span className="col-2">release date</span>
-                <span className="col-2">rating</span>
+type Props = {
+    title: string,
+    options: Array<SortOption>,
+    activeOptionID: string,
+    onOptionClick?: (id: string) => void
+}
+
+class StatusBar extends PureComponent<Props> {
+
+    renderOption = (option: SortOption) => {
+        const { activeOptionID, onOptionClick } = this.props
+        const sortOptClassName = option.id === activeOptionID ? 'sort-opt-active' : 'sort-opt'
+        const className = `col-2 ${sortOptClassName}`
+        const onClick = e => onOptionClick && (option.id !== activeOptionID) && onOptionClick(option.id)
+
+        return (
+            <span key={option.id} className={className} onClick={onClick}>
+                {option.title}
+            </span>
+        )
+    }
+
+    render() {
+        const { title, options=[], activeOptionID } = this.props
+        return (
+            <div className="status-bar">
+                <div className="row">
+                    <span className="col-6">{title}</span>
+                    <span className="col-2">Sort by</span>
+                    {options.map(this.renderOption)}
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default StatusBar
