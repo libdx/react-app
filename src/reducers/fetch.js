@@ -17,8 +17,8 @@ type MovieProp = (a: Movie) => any
 
 const sameOrder = (a: Movie) => 0
 
-const comparisonProp = (sortOrder: string): MovieProp => {
-    switch (sortOrder) {
+const comparisonProp = (sortKey: string): MovieProp => {
+    switch (sortKey) {
         case 'RELEASE_DATE':
             return date
         case 'RATING':

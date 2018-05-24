@@ -4,13 +4,13 @@ import { connect } from 'react-redux'
 import StatusBar from '../components/status_bar'
 import { sortMovies } from '../actions'
 
-import type SortOrder from '../types/sort_order'
-import { sortOrder } from '../types/sort_order'
+import type SortKey from '../types/sort_order'
+import { sortKey } from '../types/sort_order'
 
 type Props = {
     title: string,
-    sortOrder?: SortOrder,
-    onOptionClick: (key: SortOrder) => void
+    sortKey?: SortKey,
+    onOptionClick: (key: SortKey) => void
 }
 
 const sortOptions = [
@@ -18,12 +18,12 @@ const sortOptions = [
     {id: 'RATING', title: 'rating'}
 ]
 
-const SortingStatusBar = ({ title, sortOrder, onOptionClick }: Props) => {
+const SortingStatusBar = ({ title, sortKey, onOptionClick }: Props) => {
     return (
         <StatusBar
             title={title}
             options={sortOptions}
-            activeOptionID={sortOrder}
+            activeOptionID={sortKey}
             onOptionClick={onOptionClick}
         />
     )
@@ -31,11 +31,11 @@ const SortingStatusBar = ({ title, sortOrder, onOptionClick }: Props) => {
 
 const mapStateToProps = (state, ownProps) => ({
     ...ownProps,
-    sortOrder: state.sortOrder
+    sortKey: state.sortKey
 })
 
 const mapDispatchToProps = dispatch => ({
-    onOptionClick: (key: SortOrder) => dispatch(sortMovies(key))
+    onOptionClick: (key: SortKey) => dispatch(sortMovies(key))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SortingStatusBar)

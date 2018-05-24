@@ -1,10 +1,10 @@
 //@flow
 import { SORT_MOVIES } from '../actions'
 
-import type { SortOrderAction } from '../actions'
-import type { SortOrder } from '../types/sort_order'
+import type { SortKeyAction } from '../actions'
+import type { SortKey } from '../types/sort_order'
 
-const sortOrder = (state: SortOrder = 'NONE', action: SortOrderAction) => {
+const sortKey = (state: SortKey = 'NONE', action: SortKeyAction) => {
     switch (action.type) {
         case SORT_MOVIES:
             return action.payload
@@ -13,5 +13,5 @@ const sortOrder = (state: SortOrder = 'NONE', action: SortOrderAction) => {
     }
 }
 
-export default sortOrder
+export default sortKey
 

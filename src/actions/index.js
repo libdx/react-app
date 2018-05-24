@@ -4,8 +4,8 @@ import axios from 'axios'
 import type { Criteria } from '../types/criteria'
 import { criteria } from '../types/criteria'
 
-import type { SortOrder } from '../types/sort_order'
-import { sortOrder } from '../types/sort_order'
+import type { SortKey } from '../types/sort_order'
+import { sortKey } from '../types/sort_order'
 
 export const FILTER_MOVIES = 'FILTER_MOVIES'
 export const FETCH_MOVIES = 'FETCH_MOVIES'
@@ -33,7 +33,7 @@ type FetchMoviesAction = {
     payload: any,
 }
 
-export type SortOrderAction = {
+export type SortKeyAction = {
     type: string,
     payload: string
 }
@@ -60,10 +60,10 @@ export const fetchMovies = (filter: Filter): FetchMoviesAction => {
     }
 }
 
-export const sortMovies = (sortOrder: SortOrder): SortOrderAction => {
+export const sortMovies = (sortKey: SortKey): SortKeyAction => {
     return {
         type: SORT_MOVIES,
-        payload: sortOrder
+        payload: sortKey
     }
 }
 

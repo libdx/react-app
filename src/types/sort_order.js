@@ -1,8 +1,8 @@
-export const sortOrder = {
+export const sortKey = {
     NONE: 'none',
     RELEASE_DATE: 'release-date',
     RATING: 'rating'
 }
 
-export type SortOrder = $Keys<typeof sortOrder>
+export type SortKey = $Keys<typeof sortKey>
 
