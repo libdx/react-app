@@ -5,10 +5,6 @@ import { title, date, raiting } from '../types/movie'
 import type { Movie } from '../types/movie'
 import type { Action } from '../actions'
 
-const byRaiting = (a: Movie, b: Movie): number => {
-    return raiting(b) - raiting(a)
-}
-
 const compare = (comparator) => (a: Movie, b: Movie) => {
     return comparator(b) - comparator(a)
 }

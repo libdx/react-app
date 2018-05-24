@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
-import fetchMovies from './fetch'
-import filter from './filter'
+import fetchMovies from './fetch_movies'
+import searchMovies from './search_movies'
 import sortKey from './sort_order'
 
 const rootReducer = combineReducers({
     movies: fetchMovies,
-    query: filter,
+    query: searchMovies,
     sortKey: sortKey
 })
 
