@@ -5,7 +5,7 @@ import sortKey from './sort_order'
 
 const rootReducer = combineReducers({
     movies: fetchMovies,
-    filter, // TODO: rename to query
+    query: filter,
     sortKey: sortKey
 })
 

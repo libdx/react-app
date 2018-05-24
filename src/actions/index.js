@@ -18,14 +18,14 @@ export type Action = {
     error?: Error
 }
 
-type Filter = {
+type Query = {
     term: string,
     searchBy: Criteria
 }
 
 export type FilterMoviesAction = {
     type: string,
-    payload: Filter,
+    payload: Query,
 }
 
 type FetchMoviesAction = {
@@ -38,12 +38,12 @@ export type SortKeyAction = {
     payload: string
 }
 
-export const filterMovies = (filter: Filter): FilterMoviesAction => ({
+export const filterMovies = (filter: Query): FilterMoviesAction => ({
     type: FILTER_MOVIES,
     payload: filter
 })
 
-export const fetchMovies = (filter: Filter): FetchMoviesAction => {
+export const fetchMovies = (filter: Query): FetchMoviesAction => {
     const { term, searchBy } = filter
     const url = `http://react-cdp-api.herokuapp.com/movies?search=${term}&searchBy=${criteria[searchBy]}`
     const request = axios.get(url)

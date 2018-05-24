@@ -53,8 +53,8 @@ class FilterPanel extends Component<Props> {
 
 const mapStateToProps = (state, ownProps) => ({
     ...ownProps,
-    term: state.filter.term,
-    searchBy: state.filter.searchBy
+    term: state.query.term,
+    searchBy: state.query.searchBy
 })
 
 const mapDispatchToProps = dispatch => ({
