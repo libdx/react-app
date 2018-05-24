@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import MovieTitle from './movie_title'
 import MovieGenreLabel from './movie_genre_label'
 import MoviePoster from './movie_poster'
-import type { Movie } from '../movie'
+import type { Movie } from '../types/movie'
 
 type Props = {
     movie: Movie

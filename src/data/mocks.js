@@ -1,6 +1,6 @@
 //@flow
 
-import type { Movie } from '../movie'
+import type { Movie } from '../types/movie'
 
 export const forrest: Movie = {
     id: 13,

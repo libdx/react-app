@@ -3,7 +3,7 @@
 import React from 'react'
 import MovieCard from './movie_card'
 
-import type { Movie } from '../movie'
+import type { Movie } from '../types/movie'
 
 type Props = {
     movies: Array<Movie>

@@ -1,9 +1,9 @@
 //@flow
 
 import React from 'react'
-import { title, releaseYear } from '../movie'
+import { title, releaseYear } from '../types/movie'
 
-import type { Movie } from '../movie'
+import type { Movie } from '../types/movie'
 
 type BadgeAlign = "left" | "right"
 

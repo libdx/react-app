@@ -54,7 +54,7 @@ export const fetchMovies = (filter: Query): FetchMoviesAction => {
         meta: {
             debounce: {
                 time: 300,
-                key: 'default'
+                key: FETCH_MOVIES
             }
         }
     }

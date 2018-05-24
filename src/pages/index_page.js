@@ -17,7 +17,7 @@ import SortingStatusBar from '../containers/sorting_status_bar'
 import FilterPanel from '../containers/filter_panel'
 
 import type { ButtonRecord } from '../components/button_group'
-import type { Movie } from '../movie'
+import type { Movie } from '../types/movie'
 import type { Criteria } from '../types/criteria'
 import { criteria } from '../types/criteria'
 import { forrest, movies as mockedMovies } from '../data/mocks'

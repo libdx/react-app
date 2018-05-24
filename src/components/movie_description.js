@@ -1,8 +1,8 @@
 //@flow
 
 import React from 'react'
-import { overview } from '../movie'
-import type { Movie } from '../movie'
+import { overview } from '../types/movie'
+import type { Movie } from '../types/movie'
 
 type Props = {
     movie: Movie

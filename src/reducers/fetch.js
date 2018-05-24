@@ -1,8 +1,8 @@
 //@flow
 import { FETCH_MOVIES, SORT_MOVIES } from '../actions'
-import { title, date, raiting } from '../movie.js'
+import { title, date, raiting } from '../types/movie'
 
-import type { Movie } from '../movie'
+import type { Movie } from '../types/movie'
 import type { Action } from '../actions'
 
 const byRaiting = (a: Movie, b: Movie): number => {
