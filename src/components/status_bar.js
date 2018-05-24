@@ -1,16 +1,17 @@
 //@flow
 import React, { PureComponent } from 'react'
+import type { SortOrder } from '../types/sort_order'
 
 type SortOption = {
-    id: string,
+    id: SortOrder,
     title: string
 }
 
 type Props = {
     title: string,
     options: Array<SortOption>,
-    activeOptionID: string,
-    onOptionClick?: (id: string) => void
+    activeOptionID?: string,
+    onOptionClick?: (id: SortOrder) => void
 }
 
 class StatusBar extends PureComponent<Props> {

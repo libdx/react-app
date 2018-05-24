@@ -20,7 +20,7 @@ export const genre = (movie: Movie): string => {
 }
 
 export const title = (movie: Movie): string => {
-    return movie.title
+    return `${movie.title} (${movie.vote_average})`
 }
 
 export const releaseYear = (movie: Movie): number => {
@@ -36,3 +36,10 @@ export const posterURL = (movie: Movie): string => {
     return movie.poster_path
 }
 
+export const date = (movie: Movie): Date => {
+    return new Date(movie.release_date)
+}
+
+export const raiting = (movie: Movie): number => {
+    return movie.vote_average
+}

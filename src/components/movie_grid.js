@@ -11,9 +11,9 @@ type Props = {
 
 const MovieGrid = ({ movies }: Props) => {
 
-    const items = movies.map((movie, index) => {
+    const items = movies.map(movie => {
         return (
-            <div key={index} className="col-md-4 col-sm-6">
+            <div key={movie.id} className="col-md-4 col-sm-6">
                 <MovieCard movie={movie} />
             </div>
         )
