@@ -21,12 +21,7 @@ type Props = {
     onChange?: (term: string, searchBy: Criteria) => void,
 }
 
-// TODO: rename to smth like this:
-// SearchResultingPanel
-// SearchScopedPanel
-// ResultingSearchPanel
-// ScopedSearchPanel
-class FilterPanel extends Component<Props> {
+class SearchResultsPanel extends Component<Props> {
     onTermChange = (term: string): void => {
         const { searchBy, onChange } = this.props
 
@@ -69,5 +64,5 @@ const mapDispatchToProps = dispatch => ({
     }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterPanel)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResultsPanel)
 

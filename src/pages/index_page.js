@@ -14,7 +14,7 @@ import Footer from '../components/footer'
 
 import MovieResultsGrid from '../containers/movie_results_grid'
 import SortingStatusBar from '../containers/sorting_status_bar'
-import FilterPanel from '../containers/search_results_panel'
+import SearchResultsPanel from '../containers/search_results_panel'
 
 import type { ButtonRecord } from '../components/button_group'
 import type { Movie } from '../types/movie'
@@ -32,7 +32,7 @@ class IndexPage extends React.Component<Props, State> {
         return (
             <div>
                 <Header brand={brand}>
-                    <FilterPanel title="Search by"/>
+                    <SearchResultsPanel title="Search by"/>
                 </Header>
                 <SortingStatusBar title="Search results" />
                 <MovieResultsGrid />
