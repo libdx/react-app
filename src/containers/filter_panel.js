@@ -7,7 +7,7 @@ import ButtonGroup from '../components/button_group'
 
 import { searchMovies, fetchMovies } from '../actions'
 
-import type { Criteria } from '../types/criteria'
+import type { Criteria } from '../types/search'
 
 const buttonRecords: Array<ButtonRecord> = [
     {id: "TITLE", title: "Title"},
@@ -21,6 +21,9 @@ type Props = {
     onChange?: (term: string, searchBy: Criteria) => void,
 }
 
+// TODO: rename to smth like this:
+// ResultingSearchPanel
+// ScopedSearchPanel
 class FilterPanel extends Component<Props> {
     onTermChange = (term: string): void => {
         const { searchBy, onChange } = this.props

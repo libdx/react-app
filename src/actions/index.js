@@ -1,8 +1,8 @@
 //@flow
 
 import axios from 'axios'
-import type { Criteria } from '../types/criteria'
-import { criteria } from '../types/criteria'
+import type { Criteria } from '../types/search'
+import { criteria } from '../types/search'
 
 import type { SortKey } from '../types/sorting'
 import { sortKey } from '../types/sorting'
