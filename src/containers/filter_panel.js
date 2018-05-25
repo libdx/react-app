@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import SearchPanel from '../components/search_panel'
 import ButtonGroup from '../components/button_group'
 
-import { filterMovies, fetchMovies } from '../actions'
+import { searchMovies, fetchMovies } from '../actions'
 
 import type { Criteria } from '../types/criteria'
 
@@ -60,7 +60,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
     onChange: (term, searchBy) => {
         dispatch(fetchMovies({ term, searchBy }))
-        dispatch(filterMovies({ term, searchBy }))
+        dispatch(searchMovies({ term, searchBy }))
     }
 })
 

@@ -23,7 +23,7 @@ type Query = {
     searchBy: Criteria
 }
 
-export const filterMovies = (query: Query): Action => ({
+export const searchMovies = (query: Query): Action => ({
     type: FILTER_MOVIES,
     payload: query
 })
