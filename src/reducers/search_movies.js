@@ -1,7 +1,7 @@
 import { SEARCH_MOVIES } from '../actions'
 
 const searchMovies = (
-        state = {term: '', searchBy: 'TITLE'},
+        state = {term: '', searchScope: 'TITLE'},
         action
     ) => {
     switch (action.type) {

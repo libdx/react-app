@@ -20,7 +20,7 @@ export type Action = {
 
 type Query = {
     term: string,
-    searchBy: Criteria
+    searchScope: Criteria
 }
 
 export const searchMovies = (query: Query): Action => ({
@@ -29,9 +29,9 @@ export const searchMovies = (query: Query): Action => ({
 })
 
 export const fetchMovies = (query: Query): Action => {
-    const { term, searchBy } = query
+    const { term, searchScope } = query
     const baseURL = 'http://react-cdp-api.herokuapp.com'
-    const url = `${baseURL}/movies?search=${term}&searchBy=${searchScopes[searchBy]}`
+    const url = `${baseURL}/movies?search=${term}&searchBy=${searchScopes[searchScope]}`
     const request = axios.get(url)
 
     return {

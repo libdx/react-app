@@ -17,33 +17,33 @@ const buttonRecords: Array<ButtonRecord> = [
 type Props = {
     title: string,
     term: string,
-    searchBy: SearchScope,
-    onChange?: (term: string, searchBy: SearchScope) => void,
+    searchScope: SearchScope,
+    onChange?: (term: string, searchScope: SearchScope) => void,
 }
 
 class SearchResultsPanel extends Component<Props> {
     onTermChange = (term: string): void => {
-        const { searchBy, onChange } = this.props
+        const { searchScope, onChange } = this.props
 
-        onChange(term, searchBy)
+        onChange(term, searchScope)
     }
 
     onButtonGroupClick = (id: SearchScope): void => {
-        const searchBy = id
+        const searchScope = id
         const { term, onChange } = this.props
 
-        onChange(term, searchBy)
+        onChange(term, searchScope)
     }
 
     render() {
-        const { title, term, searchBy } = this.props
+        const { title, term, searchScope } = this.props
 
         return (
             <SearchPanel term={term} onChange={this.onTermChange} >
                 <ButtonGroup
                     title={title}
                     buttons={buttonRecords}
-                    selectedButtonId={searchBy}
+                    selectedButtonId={searchScope}
                     onClick={this.onButtonGroupClick}
                 />
             </SearchPanel>
@@ -54,13 +54,13 @@ class SearchResultsPanel extends Component<Props> {
 const mapStateToProps = (state, ownProps) => ({
     ...ownProps,
     term: state.query.term,
-    searchBy: state.query.searchBy
+    searchScope: state.query.searchScope
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: (term, searchBy) => {
-        dispatch(fetchMovies({ term, searchBy }))
-        dispatch(searchMovies({ term, searchBy }))
+    onChange: (term, searchScope) => {
+        dispatch(fetchMovies({ term, searchScope }))
+        dispatch(searchMovies({ term, searchScope }))
     }
 })
 

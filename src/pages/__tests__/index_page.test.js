@@ -19,7 +19,7 @@ describe('IndexPage ', () => {
     })
 
     it('propagates search scope by state to button group', () => {
-        component.setState({ searchBy: buttonRecords[1].id })
+        component.setState({ searchScope: buttonRecords[1].id })
 
         const buttonGroup = component.find('ButtonGroup')
         expect(buttonGroup.props().selectedButtonId).toEqual(buttonRecords[1].id)
