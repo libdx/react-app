@@ -2,7 +2,7 @@
 
 import axios from 'axios'
 import type { Criteria } from '../types/search'
-import { criteria } from '../types/search'
+import { searchScopes } from '../types/search'
 
 import type { SortKey } from '../types/sorting'
 import { sortKey } from '../types/sorting'
@@ -31,7 +31,7 @@ export const searchMovies = (query: Query): Action => ({
 export const fetchMovies = (query: Query): Action => {
     const { term, searchBy } = query
     const baseURL = 'http://react-cdp-api.herokuapp.com'
-    const url = `${baseURL}/movies?search=${term}&searchBy=${criteria[searchBy]}`
+    const url = `${baseURL}/movies?search=${term}&searchBy=${searchScopes[searchBy]}`
     const request = axios.get(url)
 
     return {

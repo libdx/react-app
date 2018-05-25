@@ -1,8 +1,8 @@
 
-export const criteria = {
+export const searchScopes = {
     TITLE: "title",
     GENRE: "genres"
 }
 
-export type Criteria = $Keys<typeof criteria>
+export type SearchScope = $Keys<typeof searchScopes>
 

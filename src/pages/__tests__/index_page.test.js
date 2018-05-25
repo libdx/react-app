@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import IndexPage, { criteria, buttonRecords } from '../index_page'
+import IndexPage, { searchScope, buttonRecords } from '../index_page'
 
 describe('IndexPage ', () => {
 
@@ -18,7 +18,7 @@ describe('IndexPage ', () => {
         expect(panel.props().term).toEqual(term)
     })
 
-    it('propagates criteria search by state to button group', () => {
+    it('propagates search scope by state to button group', () => {
         component.setState({ searchBy: buttonRecords[1].id })
 
         const buttonGroup = component.find('ButtonGroup')

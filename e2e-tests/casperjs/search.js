@@ -34,7 +34,7 @@ casper.test.begin("Accessing search input", 4, function(test) {
     })
 })
 
-casper.test.begin("Accessing search criteria", 6, function(test) {
+casper.test.begin("Accessing search scopes", 6, function(test) {
     const URL = 'http://localhost:8080/'
     const SEL = 'div.search-bar > div.button-group > button'
 
