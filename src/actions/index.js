@@ -4,8 +4,8 @@ import axios from 'axios'
 import type { Criteria } from '../types/criteria'
 import { criteria } from '../types/criteria'
 
-import type { SortKey } from '../types/sort_order'
-import { sortKey } from '../types/sort_order'
+import type { SortKey } from '../types/sorting'
+import { sortKey } from '../types/sorting'
 
 export const SEARCH_MOVIES = 'SEARCH_MOVIES'
 export const FETCH_MOVIES = 'FETCH_MOVIES'

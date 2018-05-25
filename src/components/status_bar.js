@@ -1,6 +1,6 @@
 //@flow
 import React, { PureComponent } from 'react'
-import type { SortKey } from '../types/sort_order'
+import type { SortKey } from '../types/sorting'
 
 type SortOption = {
     id: SortKey,

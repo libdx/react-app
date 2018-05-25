@@ -2,7 +2,7 @@
 import { SORT_MOVIES } from '../actions'
 
 import type { Action } from '../actions'
-import type { SortKey } from '../types/sort_order'
+import type { SortKey } from '../types/sorting'
 
 const sortKey = (state: SortKey = 'NONE', action: Action) => {
     switch (action.type) {

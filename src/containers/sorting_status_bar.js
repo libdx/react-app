@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import StatusBar from '../components/status_bar'
 import { sortMovies } from '../actions'
 
-import type SortKey from '../types/sort_order'
-import { sortKey } from '../types/sort_order'
+import type SortKey from '../types/sorting'
+import { sortKey } from '../types/sorting'
 
 type Props = {
     title: string,
