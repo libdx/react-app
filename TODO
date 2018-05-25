@@ -2,6 +2,7 @@
 - (optional) pagenation
 - (optional) click on movie shows overview
 - sorting
+- pass sorting options to service
 - tests
     - update tests
     - new tests
