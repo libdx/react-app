@@ -14,7 +14,7 @@ import Footer from '../components/footer'
 
 import MovieResultsGrid from '../containers/movie_results_grid'
 import SortingStatusBar from '../containers/sorting_status_bar'
-import FilterPanel from '../containers/filter_panel'
+import FilterPanel from '../containers/search_results_panel'
 
 import type { ButtonRecord } from '../components/button_group'
 import type { Movie } from '../types/movie'
