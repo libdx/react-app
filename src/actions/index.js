@@ -7,7 +7,7 @@ import { criteria } from '../types/criteria'
 import type { SortKey } from '../types/sort_order'
 import { sortKey } from '../types/sort_order'
 
-export const FILTER_MOVIES = 'FILTER_MOVIES'
+export const SEARCH_MOVIES = 'SEARCH_MOVIES'
 export const FETCH_MOVIES = 'FETCH_MOVIES'
 export const SORT_MOVIES = 'SORT_MOVIES'
 
@@ -24,7 +24,7 @@ type Query = {
 }
 
 export const searchMovies = (query: Query): Action => ({
-    type: FILTER_MOVIES,
+    type: SEARCH_MOVIES,
     payload: query
 })
 
