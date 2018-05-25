@@ -1,6 +1,6 @@
 import { SEARCH_MOVIES } from '../actions'
 
-const filter = (
+const searchMovies = (
         state = {term: '', searchBy: 'TITLE'},
         action
     ) => {
@@ -12,5 +12,5 @@ const filter = (
     }
 }
 
-export default filter
+export default searchMovies
 
