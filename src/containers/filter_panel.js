@@ -22,6 +22,8 @@ type Props = {
 }
 
 // TODO: rename to smth like this:
+// SearchResultingPanel
+// SearchScopedPanel
 // ResultingSearchPanel
 // ScopedSearchPanel
 class FilterPanel extends Component<Props> {
