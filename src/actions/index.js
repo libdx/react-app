@@ -1,11 +1,13 @@
 //@flow
 
 import axios from 'axios'
-import type { Criteria } from '../types/search'
+import type { SearchScope } from '../types/search'
 import { searchScopes } from '../types/search'
 
 import type { SortKey } from '../types/sorting'
-import { sortKey } from '../types/sorting'
+import { sortKeys } from '../types/sorting'
+
+import type { Query } from '../types/query'
 
 export const SEARCH_MOVIES = 'SEARCH_MOVIES'
 export const FETCH_MOVIES = 'FETCH_MOVIES'
@@ -18,11 +20,6 @@ export type Action = {
     error?: Error
 }
 
-type Query = {
-    term: string,
-    searchScope: Criteria
-}
-
 export const searchMovies = (query: Query): Action => ({
     type: SEARCH_MOVIES,
     payload: query
@@ -31,18 +28,17 @@ export const searchMovies = (query: Query): Action => ({
 export const fetchMovies = (query: Query): Action => {
     const { term, searchScope } = query
     const baseURL = 'http://react-cdp-api.herokuapp.com'
-    const url = `${baseURL}/movies?search=${term}&searchBy=${searchScopes[searchScope]}`
-    const request = axios.get(url)
+    const url = `${baseURL}/movies`
+    const request = axios.get(url, {
+        params: {
+            search: term,
+            searchBy: searchScopes[searchScope]
+        }
+    })
 
     return {
         type: FETCH_MOVIES,
-        payload: request,
-        meta: {
-            debounce: {
-                time: 300,
-                key: FETCH_MOVIES
-            }
-        }
+        payload: request
     }
 }
 

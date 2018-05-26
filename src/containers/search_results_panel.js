@@ -4,10 +4,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import SearchPanel from '../components/search_panel'
 import ButtonGroup from '../components/button_group'
+import _ from 'lodash'
 
 import { searchMovies, fetchMovies } from '../actions'
 
 import type { SearchScope } from '../types/search'
+import type { Query } from '../types/query'
 
 const buttonRecords: Array<ButtonRecord> = [
     {id: "TITLE", title: "Title"},
@@ -16,27 +18,27 @@ const buttonRecords: Array<ButtonRecord> = [
 
 type Props = {
     title: string,
-    term: string,
-    searchScope: SearchScope,
-    onChange?: (term: string, searchScope: SearchScope) => void,
+    query: Query,
+    onChange?: (query: Query) => void,
 }
 
 class SearchResultsPanel extends Component<Props> {
     onTermChange = (term: string): void => {
-        const { searchScope, onChange } = this.props
+        const { query, onChange } = this.props
 
-        onChange(term, searchScope)
+        onChange({ ...query, term })
     }
 
     onButtonGroupClick = (id: SearchScope): void => {
         const searchScope = id
-        const { term, onChange } = this.props
+        const { query, onChange } = this.props
+        console.log(id)
 
-        onChange(term, searchScope)
+        onChange({ ...query, searchScope })
     }
 
     render() {
-        const { title, term, searchScope } = this.props
+        const { title, query: {term, searchScope} } = this.props
 
         return (
             <SearchPanel term={term} onChange={this.onTermChange} >
@@ -53,14 +55,17 @@ class SearchResultsPanel extends Component<Props> {
 
 const mapStateToProps = (state, ownProps) => ({
     ...ownProps,
-    term: state.query.term,
-    searchScope: state.query.searchScope
+    query: state.query
 })
 
+const dispatchFetchMovies = _.debounce((dispatch, query) => {
+    dispatch(fetchMovies(query))
+}, 300)
+
 const mapDispatchToProps = dispatch => ({
-    onChange: (term, searchScope) => {
-        dispatch(fetchMovies({ term, searchScope }))
-        dispatch(searchMovies({ term, searchScope }))
+    onChange: (query) => {
+        dispatchFetchMovies(dispatch, query)
+        dispatch(searchMovies(query))
     }
 })
 
