@@ -1,5 +1,4 @@
 export const sortKeys = {
-    NONE: 'none',
     RELEASE_DATE: 'release_date',
     RATING: 'vote_average'
 }
