@@ -18,10 +18,8 @@ import SearchResultsPanel from '../containers/search_results_panel'
 
 import type { ButtonRecord } from '../components/button_group'
 import type { Movie } from '../types/movie'
-import { forrest, movies as mockedMovies } from '../data/mocks'
 
 type Props = {}
-
 type State = {}
 
 class IndexPage extends React.Component<Props, State> {
