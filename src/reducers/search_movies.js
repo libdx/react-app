@@ -1,9 +1,13 @@
 import { SEARCH_MOVIES } from '../actions'
 
-const searchMovies = (
-        state = {term: '', searchScope: 'TITLE'},
-        action
-    ) => {
+const defaultQuery = {
+    term: '',
+    searchScope: 'TITLE',
+    sortKey: 'RELEASE_DATE',
+    sortOrder: 'DESC'
+}
+
+const searchMovies = (state = defaultQuery, action) => {
     switch (action.type) {
         case SEARCH_MOVIES:
             return action.payload

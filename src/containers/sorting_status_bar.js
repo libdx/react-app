@@ -1,15 +1,17 @@
 //@flow
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import _ from 'lodash'
 import StatusBar from '../components/status_bar'
-import { sortMovies } from '../actions'
+import { searchMovies, fetchMovies } from '../actions'
 
-import type SortKey from '../types/sorting'
+import type { SortKey, SortOrder } from '../types/sorting'
+import type { Query } from '../types/query'
 
 type Props = {
     title: string,
-    sortKey?: SortKey,
-    onOptionClick: (key: SortKey) => void
+    query: Query,
+    onChange: (query: Query) => void
 }
 
 const sortOptions = [
@@ -17,24 +19,40 @@ const sortOptions = [
     {id: 'RATING', title: 'rating'}
 ]
 
-const SortingStatusBar = ({ title, sortKey, onOptionClick }: Props) => {
-    return (
-        <StatusBar
-            title={title}
-            options={sortOptions}
-            activeOptionID={sortKey}
-            onOptionClick={onOptionClick}
-        />
-    )
+class SortingStatusBar extends PureComponent<Props> {
+    onOptionClick = (sortKey: SortKey): void => {
+        const { query, onChange } = this.props
+
+        onChange({ ...query, sortKey })
+    }
+
+    render() {
+        const { title, query: { sortKey } } = this.props
+        return (
+            <StatusBar
+                title={title}
+                options={sortOptions}
+                activeOptionID={sortKey}
+                onOptionClick={this.onOptionClick}
+            />
+        )
+    }
 }
 
 const mapStateToProps = (state, ownProps) => ({
     ...ownProps,
-    sortKey: state.sortKey
+    query: state.query
 })
 
+const dispatchFetchMovies = _.debounce((dispatch, query) => {
+    dispatch(fetchMovies(query))
+}, 300)
+
 const mapDispatchToProps = dispatch => ({
-    onOptionClick: (key: SortKey) => dispatch(sortMovies(key))
+    onChange: (query: Query) => {
+        dispatchFetchMovies(dispatch, query)
+        dispatch(searchMovies(query))
+    }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SortingStatusBar)

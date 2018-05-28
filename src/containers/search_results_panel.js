@@ -2,9 +2,9 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import _ from 'lodash'
 import SearchPanel from '../components/search_panel'
 import ButtonGroup from '../components/button_group'
-import _ from 'lodash'
 
 import { searchMovies, fetchMovies } from '../actions'
 
