@@ -2,26 +2,21 @@ import "babel-polyfill"
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import ReduxPromise from 'redux-promise'
-import createDebounce from 'redux-debounced';
+import { PersistGate } from 'redux-persist/integration/react'
+
 import App from './app'
-import reducer from './reducers'
+import setupStore from './setup_store'
 import './styles/common.css'
 
-const reduxDebounce = createDebounce()
-
-const store = createStore(
-    reducer,
-    {},
-    applyMiddleware(reduxDebounce, ReduxPromise)
-)
+const { store, persistor } = setupStore()
 
 const root = document.getElementById('root')
 const element =
     <Provider store={store}>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+            <App />
+        </PersistGate>
     </Provider>
 
 ReactDOM.render(element, root)

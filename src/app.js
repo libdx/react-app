@@ -9,8 +9,6 @@ import EmptyState from './components/empty_state'
 import MovieDetails from './components/movie_details'
 import IndexPage from './pages/index_page.js'
 
-import { forrest } from './data/mocks'
-
 type AppProps = {}
 
 class App extends Component<AppProps> {
