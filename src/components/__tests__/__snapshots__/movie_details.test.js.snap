@@ -12,7 +12,7 @@ exports[`MovieDetails renders correctly 1`] = `
     >
       <img
         className="card-img-top poster-img"
-        src="http://t0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu"
+        src="https://image.tmdb.org/t/p/w500/yE5d3BUhE8hCnkMUJOo1QDoOGNz.jpg"
       />
     </div>
     <div
@@ -27,7 +27,7 @@ exports[`MovieDetails renders correctly 1`] = `
           <span
             className="alignleft"
           >
-            Forrest Gump
+            Forrest Gump (8.3)
           </span>
           <span
             className="badge badge-light badge-margin-left"
@@ -42,11 +42,11 @@ exports[`MovieDetails renders correctly 1`] = `
       <p
         className="card-subtitle mb-2 text-muted"
       >
-        Comedy-drama
+        Comedy, Drama, Romance
       </p>
       <p>
          
-        Slow-witted Forrest Gump (Tom Hanks) has never thought of himself as disadvantaged, and thanks to his supportive mother (Sally Field), he leads anything but a restricted life. Whether dominating on the gridiron as a college football star, fighting in Vietnam or captaining a shrimp boat, Forrest inspires people with his childlike optimism. But one person Forrest cares about most may be the most difficult to save -- his childhood love, the sweet but troubled Jenny (Robin Wright).
+        A man with a low IQ has accomplished great things in his life and been present during significant historic events - in each case, far exceeding what anyone imagined he could do. Yet, despite all the things he has attained, his one true love eludes him. 'Forrest Gump' is the story of a man who rose above his challenges, and who proved that determination, courage, and love are more important than ability.
          
       </p>
     </div>

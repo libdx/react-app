@@ -7,7 +7,7 @@ exports[`MovieTitle renders correctly 1`] = `
   <span
     className="alignleft"
   >
-    Forrest Gump
+    Forrest Gump (8.3)
   </span>
   <span
     className="badge badge-light alignright"

@@ -6,7 +6,7 @@ exports[`MovieCard renders correctly 1`] = `
 >
   <img
     className="card-img-top poster-img"
-    src="http://t0.gstatic.com/images?q=tbn:ANd9GcSppDgk99BKVA4TJtWc1FN4-HUkdWrFNfMm1-M0nQ01sIOcbTZu"
+    src="https://image.tmdb.org/t/p/w500/yE5d3BUhE8hCnkMUJOo1QDoOGNz.jpg"
   />
   <div
     className="card-body movie-card-body"
@@ -17,7 +17,7 @@ exports[`MovieCard renders correctly 1`] = `
       <span
         className="alignleft"
       >
-        Forrest Gump
+        Forrest Gump (8.3)
       </span>
       <span
         className="badge badge-light alignright"
@@ -31,7 +31,7 @@ exports[`MovieCard renders correctly 1`] = `
     <p
       className="card-subtitle mb-2 text-muted"
     >
-      Comedy-drama
+      Comedy, Drama, Romance
     </p>
   </div>
 </div>
