@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import renderer from 'react-test-renderer'
 import MovieDescription  from '../movie_description'
+import { overview } from '../../types/movie'
 
 // FIXME: fire out how to properly mock model objects
 import { forrest as movie } from '../../data/mocks'
@@ -18,7 +19,7 @@ describe('', () => {
 
     it('shows description', () => {
         const text = component.text()
-        expect(text).toEqual(expect.stringContaining(movie.description))
+        expect(text).toEqual(expect.stringContaining(overview(movie)))
     })
 
     it('renders correctly', () => {

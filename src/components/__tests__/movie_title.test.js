@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import renderer from 'react-test-renderer'
 import MovieTitle from '../movie_title'
+import { title, releaseYear } from '../../types/movie'
 
 // FIXME: fire out how to properly mock model objects
 import { forrest as movie } from '../../data/mocks'
@@ -18,12 +19,13 @@ describe('MovieTitle', () => {
 
     it('shows title', () => {
         const text = component.text()
-        expect(text).toEqual(expect.stringContaining(movie.title))
+        expect(text).toEqual(expect.stringContaining(title(movie)))
     })
 
     it('shows release year', () => {
         const text = component.text()
-        expect(text).toEqual(expect.stringContaining(movie.releaseYear))
+        const releaseYearText = releaseYear(movie).toString()
+        expect(text).toEqual(expect.stringContaining(releaseYearText))
     })
 
     it('renders correctly', () => {

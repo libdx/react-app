@@ -32,7 +32,6 @@ class SearchResultsPanel extends Component<Props> {
     onButtonGroupClick = (id: SearchScope): void => {
         const searchScope = id
         const { query, onChange } = this.props
-        console.log(id)
 
         onChange({ ...query, searchScope })
     }

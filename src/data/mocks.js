@@ -17,5 +17,5 @@ export const forrest: Movie = {
     runtime: 142
 }
 
-export const movies = [forrest, forrest, forrest, forrest, forrest, forrest]
+export const movies = [forrest, forrest, forrest, forrest, forrest, forrest].map((movie, index) => ({ ...movie, id: index }))
 

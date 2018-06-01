@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import renderer from 'react-test-renderer'
 import MovieGenreLabel from '../movie_genre_label'
+import { genre } from '../../types/movie'
 
 // FIXME: fire out how to properly mock model objects
 import { forrest as movie } from '../../data/mocks'
@@ -19,7 +20,7 @@ describe('MovieGenreLabel', () => {
 
     it('shows correct genre', () => {
         const text = component.text()
-        expect(text).toEqual(expect.stringContaining(movie.genre))
+        expect(text).toEqual(expect.stringContaining(genre(movie)))
     })
 
     it('renders correctly', () => {
