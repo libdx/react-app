@@ -59,7 +59,7 @@
     "test": "jest --silent",
     "test-debug": "jest",
     "e2e-test": "casperjs test e2e-tests",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage --silent"
   },
   "jest": {
     "collectCoverageFrom": [
