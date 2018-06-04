@@ -23,25 +23,21 @@ describe('ErrorBoundary ', () => {
         expect(a.exists()).toBe(true)
     })
 
-    // this test is passing, however during `mount`
-    // irritating uncought error message is being displayed in logs
-    // commenting out it for now
-    // 
-    //it('shows error message when child throws', () => {
-    //    const errorMessage='Error Message'
+    it('shows error message when child throws', () => {
+        const errorMessage='Error Message'
 
-    //    const spy = jest.spyOn(ErrorBoundary.prototype, 'componentDidCatch')
-    //    const component = mount(
-    //        <ErrorBoundary errorMessage={errorMessage}>
-    //            <Broken />
-    //        </ErrorBoundary>
-    //    )
+        const spy = jest.spyOn(ErrorBoundary.prototype, 'componentDidCatch')
+        const component = mount(
+            <ErrorBoundary errorMessage={errorMessage}>
+                <Broken />
+            </ErrorBoundary>
+        )
 
-    //    expect(ErrorBoundary.prototype.componentDidCatch).toHaveBeenCalled()
+        expect(ErrorBoundary.prototype.componentDidCatch).toHaveBeenCalled()
 
-    //    //const text = component.text()
-    //    //expect(text).toEqual(expect.stringContaining(errorMessage))
-    //})
+        const text = component.text()
+        expect(text).toEqual(expect.stringContaining(errorMessage))
+    })
 
     it('shows error message', () => {
         const errorMessage='Error Message'
