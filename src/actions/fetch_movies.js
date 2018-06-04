@@ -12,11 +12,13 @@ import { sortKeys, sortOrders } from '../types/sorting'
 import type { Query } from '../types/query'
 import type { Action } from '../types/action'
 
+export const BASE_URL = 'http://react-cdp-api.herokuapp.com'
+
 export const fetchMovies = (query: Query): Action => {
     const { term, searchScope, sortKey, sortOrder } = query
 
-    const baseURL = 'http://react-cdp-api.herokuapp.com'
-    const url = `${baseURL}/movies`
+    const BASE_URL = 'http://react-cdp-api.herokuapp.com'
+    const url = `${BASE_URL}/movies`
 
     const sortBy = { sortBy: sortKeys[sortKey] }
     const params = {
