@@ -5,10 +5,6 @@ import { title, date, raiting } from '../types/movie'
 import type { Movie } from '../types/movie'
 import type { Action } from '../types/action'
 
-const compare = (comparator) => (a: Movie, b: Movie) => {
-    return comparator(b) - comparator(a)
-}
-
 const fetchMovies = (state: Array<Movie> = [], action: Action): Array<Movie> => {
     switch (action.type) {
         case FETCH_MOVIES:

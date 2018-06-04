@@ -1,7 +1,7 @@
 import { SEARCH_MOVIES } from '..'
 import { searchMovies } from '../search_movies'
 
-describe('searchMovies', () => {
+describe('SEARCH_MOVIES action', () => {
     it('creates action with passed query', () => {
         const query = {
             term: 'abc',

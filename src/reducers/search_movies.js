@@ -1,6 +1,6 @@
 import { SEARCH_MOVIES } from '../actions'
 
-const defaultQuery = {
+export const defaultQuery = {
     term: '',
     searchScope: 'TITLE',
     sortKey: 'RELEASE_DATE',

@@ -8,7 +8,7 @@ import { fetchMovies, BASE_URL } from '../fetch_movies'
 const mockStore = configureMockStore()
 const axioMock = new MockAdapter(axios)
 
-describe('fetchMovies', () => {
+describe('FETCH_MOVIES action', () => {
     let store
 
     beforeEach(() => store = mockStore())
