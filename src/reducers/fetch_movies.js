@@ -3,7 +3,7 @@ import { FETCH_MOVIES } from '../actions'
 import { title, date, raiting } from '../types/movie'
 
 import type { Movie } from '../types/movie'
-import type { Action } from '../actions'
+import type { Action } from '../types/action'
 
 const compare = (comparator) => (a: Movie, b: Movie) => {
     return comparator(b) - comparator(a)

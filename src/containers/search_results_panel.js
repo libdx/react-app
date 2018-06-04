@@ -6,7 +6,8 @@ import _ from 'lodash'
 import SearchPanel from '../components/search_panel'
 import ButtonGroup from '../components/button_group'
 
-import { searchMovies, fetchMovies } from '../actions'
+import { searchMovies } from '../actions/search_movies'
+import { fetchMovies } from '../actions/fetch_movies'
 
 import type { SearchScope } from '../types/search'
 import type { Query } from '../types/query'
