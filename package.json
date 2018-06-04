@@ -56,7 +56,8 @@
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
     "flow": "flow",
-    "test": "jest",
+    "test": "jest --silent",
+    "test-log": "jest",
     "e2e-test": "casperjs test e2e-tests",
     "coverage": "jest --coverage"
   },
