@@ -17,6 +17,18 @@ exports[`StatusBar renders correctly 1`] = `
     >
       Sort by
     </span>
+    <span
+      className="col-2 sort-opt-active"
+      onClick={[Function]}
+    >
+      release date
+    </span>
+    <span
+      className="col-2 sort-opt"
+      onClick={[Function]}
+    >
+      rating
+    </span>
   </div>
 </div>
 `;
