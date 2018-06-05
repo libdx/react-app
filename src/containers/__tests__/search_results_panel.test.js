@@ -22,11 +22,15 @@ describe('SearchResultsPanel', () => {
     let onChange
 
     beforeEach(() => {
-        store = mockStore({ query })
+        store = mockStore({ query, onChange })
         onChange = jest.fn()
         element = <SearchResultsPanel title={title} />
         component = shallowWithStore(element, store).dive()
-        //console.log(component.debug())
+    })
+
+    it('has onChange prop', () => {
+        expect(component.props().onChange).not.toBeUndefined()
+        expect(component.props().onChange).not.toBeNull()
     })
 
     it('has SearchPanel child', () => {
@@ -51,12 +55,19 @@ describe('SearchResultsPanel', () => {
     })
 
     // TODO: find a way to get input
-    //it('passes correct text on change', () => {
-    //    const input = component.find('input[type="text"]') 
-    //    const newTerm = 'abcde'
-    //    const event = { target: { value: newTerm } }
-    //    input.simulate('change', event)
-    //    const newQuery = { ...query, term: newTerm }
-    //    expect(onChange).toBeCalledWith(newQuery)
-    //})
+    it('passes correct text on change', () => {
+        const searchPanel = component.find('SearchPanel').dive()
+        const searchInput = searchPanel.find('SearchInput').dive()
+
+        const input = searchInput.find('input[type="text"]') 
+        console.log('input', input.debug())
+
+        const newTerm = 'abcde'
+        const event = { target: { value: newTerm } }
+
+        input.simulate('change', event)
+        const newQuery = { ...query, term: newTerm }
+
+        expect(onChange).toBeCalledWith(newQuery)
+    })
 })
