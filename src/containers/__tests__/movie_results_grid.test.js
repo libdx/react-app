@@ -7,7 +7,6 @@ import MovieResultsGrid from '../movie_results_grid'
 import MovieGrid  from '../../components/movie_grid'
 import MovieCard from '../../components/movie_card'
 
-// FIXME: fire out how to properly mock model objects
 import { movies } from '../../data/mocks'
 
 const mockStore = configureMockStore()
