@@ -1,13 +1,14 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import renderer from 'react-test-renderer'
+import thunk from 'redux-thunk'
 import configureMockStore from 'redux-mock-store'
 import shallowWithStore from '../../test_helpers/shallow_with_store'
 import SearchResultsPanel from '../search_results_panel'
 import { searchMovies } from '../../actions/search_movies'
 import { fetchMovies } from '../../actions/fetch_movies'
 
-const mockStore = configureMockStore()
+const mockStore = configureMockStore([thunk])
 
 describe('SearchResultsPanel', () => {
     const title = 'abc'

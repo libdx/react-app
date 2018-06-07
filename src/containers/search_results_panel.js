@@ -57,14 +57,9 @@ const mapStateToProps = (state, ownProps) => ({
     query: state.query
 })
 
-// FIXME: Make use of debounce middleware instead of debouncing action dispatch in place
-const dispatchFetchMovies = _.debounce((dispatch, query) => {
-    dispatch(fetchMovies(query))
-}, 300)
-
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: (query) => {
-        dispatchFetchMovies(dispatch, query)
+        dispatch(fetchMovies(query))
         dispatch(searchMovies(query))
     },
     ...ownProps

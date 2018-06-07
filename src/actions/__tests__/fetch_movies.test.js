@@ -1,11 +1,12 @@
 import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 
 import { FETCH_MOVIES } from '..'
 import { fetchMovies, BASE_URL } from '../fetch_movies'
 
-const mockStore = configureMockStore()
+const mockStore = configureMockStore([thunk])
 const axioMock = new MockAdapter(axios)
 
 describe('FETCH_MOVIES action', () => {

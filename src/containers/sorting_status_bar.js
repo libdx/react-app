@@ -45,13 +45,9 @@ const mapStateToProps = (state, ownProps) => ({
     query: state.query
 })
 
-const dispatchFetchMovies = _.debounce((dispatch, query) => {
-    dispatch(fetchMovies(query))
-}, 300)
-
 const mapDispatchToProps = dispatch => ({
     onChange: (query: Query) => {
-        dispatchFetchMovies(dispatch, query)
+        dispatch(fetchMovies(query))
         dispatch(searchMovies(query))
     }
 })

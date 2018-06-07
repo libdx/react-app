@@ -28,11 +28,21 @@ export const fetchMovies = (query: Query): Action => {
         ...sortBy
     }
 
-    const request = axios.get(url, { params })
+    const thunk = dispatch => {
+        const request = axios.get(url, { params })
 
-    return {
-        type: FETCH_MOVIES,
-        payload: request
+        dispatch({
+            type: FETCH_MOVIES,
+            payload: request
+        })
     }
+    thunk.meta = {
+        debounce: {
+            time: 300,
+            key: FETCH_MOVIES
+        }
+    }
+
+    return thunk
 }
 
