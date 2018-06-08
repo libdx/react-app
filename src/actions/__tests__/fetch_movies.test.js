@@ -1,11 +1,12 @@
 import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 
-import { FETCH_MOVIES } from '..'
+import { FETCH_MOVIES, LOAD_MOVIES } from '..'
 import { fetchMovies, BASE_URL } from '../fetch_movies'
 
-const mockStore = configureMockStore()
+const mockStore = configureMockStore([thunk])
 const axioMock = new MockAdapter(axios)
 
 describe('FETCH_MOVIES action', () => {
@@ -35,8 +36,10 @@ describe('FETCH_MOVIES action', () => {
 
         store.dispatch(action)
 
-        action.payload.then(res => {
-            expect(action.type).toEqual(FETCH_MOVIES)
+        const lastAction = store.getActions()[0]
+
+        return lastAction.payload.then(res => {
+            expect(lastAction.type).toEqual(LOAD_MOVIES)
             expect(res.data.data).toEqual(movies)
         })
     })

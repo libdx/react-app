@@ -1,7 +1,7 @@
 //@flow
 
 import axios from 'axios'
-import { FETCH_MOVIES } from '.'
+import { FETCH_MOVIES, LOAD_MOVIES } from '.'
 import type { SearchScope } from '../types/search'
 import { searchScopes } from '../types/search'
 
@@ -14,7 +14,7 @@ import type { Action } from '../types/action'
 
 export const BASE_URL = 'http://react-cdp-api.herokuapp.com'
 
-export const fetchMovies = (query: Query): Action => {
+export const loadMovies = (query: Query): Action => {
     const { term, searchScope, sortKey, sortOrder } = query
 
     const BASE_URL = 'http://react-cdp-api.herokuapp.com'
@@ -31,8 +31,22 @@ export const fetchMovies = (query: Query): Action => {
     const request = axios.get(url, { params })
 
     return {
-        type: FETCH_MOVIES,
+        type: LOAD_MOVIES,
         payload: request
     }
+}
+
+export const fetchMovies = (query: Query): Action => {
+    const thunk = dispatch => {
+        dispatch(loadMovies(query))
+    }
+    thunk.meta = {
+        debounce: {
+            time: 300,
+            key: FETCH_MOVIES
+        }
+    }
+
+    return thunk
 }
 
