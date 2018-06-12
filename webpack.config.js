@@ -44,6 +44,9 @@ module.exports = function(env, options) {
                 }
             ]
         },
+        devServer: {
+            historyApiFallback: true
+        },
         plugins: [
             new HtmlWebPackPlugin({
                 template: './src/index.html',

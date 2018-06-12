@@ -39,8 +39,10 @@
     font-size: 140%;
 }
 
-.not-found-label {
-    font-size: 400%;
+.not-found p {
+    padding: 200px 0px;
+    text-align: center;
+    font-size: 24pt;
 }
 
 .card-body {
