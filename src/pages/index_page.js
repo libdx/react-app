@@ -1,8 +1,6 @@
 //@flow
 
 import React, { Component } from 'react'
-import axios from 'axios'
-import _ from 'lodash'
 
 import Button from '../components/button'
 import StatusBar from '../components/status_bar'
@@ -22,7 +20,7 @@ import type { Movie } from '../types/movie'
 type Props = {}
 type State = {}
 
-class IndexPage extends React.Component<Props, State> {
+class IndexPage extends Component<Props, State> {
 
     render() {
         const brand = "Movieseek"

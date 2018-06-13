@@ -9,7 +9,8 @@ type SortOption = {
 
 type Props = {
     title: string,
-    options: Array<SortOption>,
+    optionsTitle?: string,
+    options?: Array<SortOption>,
     activeOptionID?: string,
     onOptionClick?: (id: SortKey) => void
 }
@@ -30,12 +31,12 @@ class StatusBar extends PureComponent<Props> {
     }
 
     render() {
-        const { title, options=[], activeOptionID } = this.props
+        const { title, optionsTitle='', options=[], activeOptionID } = this.props
         return (
             <div className="status-bar">
                 <div className="row">
                     <span className="col-6">{title}</span>
-                    <span className="col-2">Sort by</span>
+                    <span className="col-2">{optionsTitle}</span>
                     {options.map(this.renderOption)}
                 </div>
             </div>

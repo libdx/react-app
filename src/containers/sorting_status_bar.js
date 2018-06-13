@@ -32,6 +32,7 @@ class SortingStatusBar extends PureComponent<Props> {
         return (
             <StatusBar
                 title={title}
+                optionsTitle="Sort by"
                 options={sortOptions}
                 activeOptionID={sortKey}
                 onOptionClick={this.onOptionClick}

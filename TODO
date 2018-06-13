@@ -1,10 +1,8 @@
-- fetch movies via middleware
 - (optional) pagenation
-- (optional) click on movie shows overview
-- sorting
-- pass sorting options to service
-- tests
-    - update tests
-    - new tests
-- offline data storage
+- click on movie shows overview
+- add movie overview page
+- make request(s) whithin movie overview page
+- show empty state if not searcher were performed yet
+- change URL when user perform search
+- support direct search URL
 

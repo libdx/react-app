@@ -9,13 +9,12 @@ import EmptyState from './components/empty_state'
 import NotFound from './components/not_found'
 import MovieDetails from './components/movie_details'
 import IndexPage from './pages/index_page'
+import MoviePage from './pages/movie_page'
 import { Route, Switch } from 'react-router-dom'
 
-type AppProps = {}
+type Props = {}
 
-const MovieID = props => <div>Hi!</div>
-
-class App extends Component<AppProps> {
+class App extends Component<Props> {
     render() {
         const brand = "Movieseek"
         return (
@@ -23,7 +22,7 @@ class App extends Component<AppProps> {
                 <ErrorBoundary>
                     <Switch>
                         <Route exact path="/" component={IndexPage} />
-                        <Route path="/movies" component={MovieID} />
+                        <Route exact path="/movies/:id" component={MoviePage} />
                         <Route path="*" component={NotFound} />
                     </Switch>
                 </ErrorBoundary>
