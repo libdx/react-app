@@ -1,8 +1,8 @@
-- (optional) pagenation
+- make request(s) whithin movie details page
 - click on movie shows overview
-- add movie overview page
-- make request(s) whithin movie overview page
+- add 'search' button that returns to search
 - show empty state if not searcher were performed yet
 - change URL when user perform search
 - support direct search URL
 
+- (optional) pagenation

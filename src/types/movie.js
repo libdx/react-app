@@ -15,6 +15,10 @@ export type Movie = {
     genres: Array<string>,
 }
 
+export const mostAppropriateGenre = (movie: Movie): ?string => {
+    return movie.genres[0]
+}
+
 export const genre = (movie: Movie): string => {
     return movie.genres.join(', ')
 }

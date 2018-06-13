@@ -1,7 +1,7 @@
 //@flow
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import _ from 'lodash'
+
 import StatusBar from '../components/status_bar'
 import { searchMovies } from '../actions/search_movies'
 import { fetchMovies } from '../actions/fetch_movies'
