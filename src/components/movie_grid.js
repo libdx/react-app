@@ -2,6 +2,7 @@
 
 import React from 'react'
 import MovieCard from './movie_card'
+import EmptyState from './empty_state'
 
 import type { Movie } from '../types/movie'
 
@@ -20,9 +21,11 @@ const MovieGrid = ({ movies, onClick }: Props) => {
         )
     })
 
+    const children = items.length > 0 ? items : <div className="col-sm-12"><EmptyState /></div>
+
     return (
         <div className="row">
-            {items}
+            {children}
         </div>
     )
 }

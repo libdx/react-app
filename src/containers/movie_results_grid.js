@@ -5,13 +5,8 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import MovieNavigationGrid from '../components/movie_navigation_grid'
 
-const onClick = (id: number): void => {
-    console.log('grid', id)
-}
-
 const mapStateToProps = (state) => ({
-    movies: state.movies,
-    onClick
+    movies: state.movies
 })
 
 const MovieResultsGrid = connect(mapStateToProps)(MovieNavigationGrid)
