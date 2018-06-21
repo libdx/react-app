@@ -10,7 +10,7 @@ import NotFound from './components/not_found'
 import MovieDetails from './components/movie_details'
 import IndexPage from './pages/index_page'
 import MoviePage from './pages/movie_page'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 type Props = {}
 
@@ -23,6 +23,7 @@ class App extends Component<Props> {
                     <Switch>
                         <Route exact path="/" component={IndexPage} />
                         <Route exact path="/movies/:id" component={MoviePage} />
+                        <Redirect exact from="/film/:id" to="/movies/:id" />
                         <Route path="*" component={NotFound} />
                     </Switch>
                 </ErrorBoundary>
