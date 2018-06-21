@@ -9,7 +9,6 @@ import type { SortKey } from '../types/sorting'
 import type { SortOrder } from '../types/sorting'
 import { sortKeys, sortOrders } from '../types/sorting'
 
-
 import type { Query } from '../types/query'
 import type { Action } from '../types/action'
 

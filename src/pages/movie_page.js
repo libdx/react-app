@@ -9,10 +9,10 @@ import Footer from '../components/footer'
 import MovieDetails from '../components/movie_details'
 import StatusBar from '../components/status_bar'
 import { fetchMovie } from '../actions/fetch_movie'
-import { mostAppropriateGenre } from '../types/movie'
+import { fetchRelevantMovies } from '../actions/fetch_relevant_movies'
+import { topmostGenre } from '../types/movie'
 
 import type { Movie } from '../types/movie'
-import { forrest, movies } from '../data/mocks' //tmp
 
 type Params = {
     id?: string
@@ -25,7 +25,9 @@ type Match = {
 type Props = {
     match?: Match,
     movie?: Movie,
-    fetchMovie?: (id: number) => void
+    relevantMovies?: Array<Movie>,
+    fetchMovie?: (id: number) => void,
+    fetchRelevantMovies?: (movie: Movie) => void
 }
 
 class MoviePage extends Component<Props> {
@@ -38,15 +40,23 @@ class MoviePage extends Component<Props> {
         }
     }
 
-    render() {
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const { fetchRelevantMovies } = this.props
+
         const { movie } = this.props
+        const { movie: prevMovie } = prevProps
+
+        if (movie && movie !== prevMovie) {
+            fetchRelevantMovies && fetchRelevantMovies(movie)
+        }
+    }
+
+    render() {
+        const { movie, relevantMovies=[] } = this.props
 
         const brand = "Movieseek"
 
-        let genre: string = ''
-        if (movie) {
-            genre = mostAppropriateGenre(movie) || ''
-        }
+        const genre: string = topmostGenre(movie)
 
         return (
             <div>
@@ -54,7 +64,7 @@ class MoviePage extends Component<Props> {
                     {movie ? <MovieDetails movie={movie} /> : "Placeholder" }
                 </Header>
                 <StatusBar title={`Movies by ${genre}`} />
-                <MovieGrid movies={movies} />
+                { relevantMovies.length > 0 ? <MovieGrid movies={relevantMovies} /> : "No relevant movies found" }
                 <Footer brand={brand} />
             </div>
         )
@@ -63,12 +73,17 @@ class MoviePage extends Component<Props> {
 
 const mapStateToProps = (state, ownProps) => ({
     ...ownProps,
-    movie: state.currentMovie
+    movie: state.currentMovie,
+    relevantMovies: state.relevantMovies
 })
 
 const mapDispatchToProps = dispatch => ({
     fetchMovie: (id: number) => {
         dispatch(fetchMovie(id))
+    },
+    fetchRelevantMovies: (movie: Movie) => {
+        const genre = topmostGenre(movie)
+        dispatch(fetchRelevantMovies(genre))
     }
 })
 
