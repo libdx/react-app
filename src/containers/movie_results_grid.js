@@ -1,13 +1,20 @@
 //flow
 
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import MovieGrid from '../components/movie_grid.js'
+import { withRouter } from 'react-router-dom'
+import MovieNavigationGrid from '../components/movie_navigation_grid'
+
+const onClick = (id: number): void => {
+    console.log('grid', id)
+}
 
 const mapStateToProps = (state) => ({
-    movies: state.movies
+    movies: state.movies,
+    onClick
 })
 
-const MovieResultsGrid = connect(mapStateToProps)(MovieGrid)
+const MovieResultsGrid = connect(mapStateToProps)(MovieNavigationGrid)
 
 export default MovieResultsGrid
 

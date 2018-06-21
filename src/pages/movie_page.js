@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Header from '../components/header'
-import MovieGrid from '../components/movie_grid'
+import MovieNavigationGrid from '../components/movie_navigation_grid'
 import Footer from '../components/footer'
 import MovieDetails from '../components/movie_details'
 import StatusBar from '../components/status_bar'
@@ -56,7 +56,7 @@ class MoviePage extends Component<Props> {
 
         const brand = "Movieseek"
 
-        const genre: string = topmostGenre(movie)
+        const genre: string = movie ? topmostGenre(movie) : ''
 
         return (
             <div>
@@ -64,7 +64,7 @@ class MoviePage extends Component<Props> {
                     {movie ? <MovieDetails movie={movie} /> : "Placeholder" }
                 </Header>
                 <StatusBar title={`Movies by ${genre}`} />
-                { relevantMovies.length > 0 ? <MovieGrid movies={relevantMovies} /> : "No relevant movies found" }
+                { relevantMovies.length > 0 ? <MovieNavigationGrid movies={relevantMovies} /> : "No relevant movies found" }
                 <Footer brand={brand} />
             </div>
         )

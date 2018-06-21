@@ -6,15 +6,16 @@ import MovieCard from './movie_card'
 import type { Movie } from '../types/movie'
 
 type Props = {
-    movies: Array<Movie>
+    movies: Array<Movie>,
+    onClick?: (id: number) => void
 }
 
-const MovieGrid = ({ movies }: Props) => {
+const MovieGrid = ({ movies, onClick }: Props) => {
 
     const items = movies.map(movie => {
         return (
             <div key={movie.id} className="col-md-4 col-sm-6">
-                <MovieCard movie={movie} />
+                <MovieCard movie={movie} onClick={ () => onClick && onClick(movie.id) }/>
             </div>
         )
     })

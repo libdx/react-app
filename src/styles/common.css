@@ -26,6 +26,15 @@
 .movie-card {
     width: 14rem;
     border: 0px;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    background-color: #E6E6FA;
+}
+
+.movie-card:hover img {
+    opacity: 0.7;
 }
 
 .movie-details-body {

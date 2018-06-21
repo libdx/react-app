@@ -7,12 +7,13 @@ import MoviePoster from './movie_poster'
 import type { Movie } from '../types/movie'
 
 type Props = {
-    movie: Movie
+    movie: Movie,
+    onClick?: () => void
 }
 
-const MovieCard = ({ movie }: Props) => {
+const MovieCard = ({ movie, onClick }: Props) => {
     return (
-        <div className="card movie-card">
+        <div className="card movie-card" onClick={e => onClick && onClick()}>
             <MoviePoster movie={movie} />
             <div className="card-body movie-card-body">
                 <MovieTitle movie={movie} />

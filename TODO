@@ -1,8 +1,10 @@
-- make request(s) whithin movie details page
-- click on movie shows overview
 - add 'search' button that returns to search
 - show empty state if not searcher were performed yet
 - change URL when user perform search
 - support direct search URL
+
+- fix bug where clicking on relevant movie does't rerender movie page
+- fix bug where displayed movie is in relevent movies
+- fix bug when opening movie page old movie and old relevant movies are being displayed
 
 - (optional) pagenation

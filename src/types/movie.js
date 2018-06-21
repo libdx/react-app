@@ -19,8 +19,8 @@ export const movieID = (movie: Movie): number => {
     return movie.id
 }
 
-export const topmostGenre = (movie: ?Movie): string => {
-    return movie ? movie.genres[0] : ''
+export const topmostGenre = (movie: Movie): string => {
+    return movie.genres[0]
 }
 
 export const genre = (movie: Movie): string => {

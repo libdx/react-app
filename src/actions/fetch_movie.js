@@ -18,7 +18,7 @@ export const fetchMovie = (id: number): Action => {
 
         let action: Action
         if (movie) {
-            action = selectMovie(id)
+            action = selectMovie(movie)
         } else {
             action = loadMovie(id)
         }
