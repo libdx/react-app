@@ -1,9 +1,8 @@
-- change URL when user perform search
-- support direct search URL
 - add 'search' button that returns to search
 
 - fix bug where clicking on relevant movie does't rerender movie page
 - fix bug where displayed movie is in relevent movies
 - fix bug when opening movie page old movie and old relevant movies are being displayed
 
-- (optional) pagenation
+- (optional) pagenation:
+    - add page control
