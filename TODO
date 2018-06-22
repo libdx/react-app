@@ -1,5 +1,3 @@
-- change URL when user perform search
-- support direct search URL
 - add 'search' button that returns to search
 
 - fix bug where clicking on relevant movie does't rerender movie page
