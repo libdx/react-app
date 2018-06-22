@@ -22,6 +22,8 @@ class App extends Component<Props> {
                 <ErrorBoundary>
                     <Switch>
                         <Route exact path="/" component={IndexPage} />
+                        <Route exact path="/search" component={IndexPage} />
+                        <Route exact path="/search/:term" component={IndexPage} />
                         <Route exact path="/movies/:id" component={MoviePage} />
                         <Redirect exact from="/film/:id" to="/movies/:id" />
                         <Route path="*" component={NotFound} />

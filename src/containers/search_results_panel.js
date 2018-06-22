@@ -2,7 +2,9 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import _ from 'lodash'
+
 import SearchPanel from '../components/search_panel'
 import ButtonGroup from '../components/button_group'
 
@@ -23,6 +25,13 @@ type Props = {
     onChange?: (query: Query) => void,
 }
 
+//const updateHistory_ = (history, term) => {
+//    const encodedTerm = encodeURI(query.term)
+//    history.replace(`/search/${encodedTerm}`)
+//}
+//
+//const updateHistory = _.debounce(updateHistory_, 300)
+
 class SearchResultsPanel extends Component<Props> {
     onTermChange = (term: string): void => { const { query, onChange } = this.props
 
@@ -34,6 +43,21 @@ class SearchResultsPanel extends Component<Props> {
         const { query, onChange } = this.props
 
         onChange({ ...query, searchScope })
+    }
+
+    updateHistory(term) {
+        const encodedTerm = encodeURI(query.term)
+        history.replace(`/search/${encodedTerm}`)
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const { query, history } = this.props
+        const { query: prevQuery } = prevProps
+    
+        if (!_.isEqual(query, prevQuery) && query.term) {
+            const encodedTerm = encodeURI(query.term)
+            history.replace(`/search/${encodedTerm}`)
+        }
     }
 
     render() {
@@ -65,5 +89,5 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     ...ownProps
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResultsPanel)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchResultsPanel))
 

@@ -1,6 +1,12 @@
 //@flow
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import _ from 'lodash'
+
+import { searchMovies } from '../actions/search_movies'
+import { fetchMovies } from '../actions/fetch_movies'
 
 import Button from '../components/button'
 import StatusBar from '../components/status_bar'
@@ -16,11 +22,34 @@ import SearchResultsPanel from '../containers/search_results_panel'
 
 import type { ButtonRecord } from '../components/button_group'
 import type { Movie } from '../types/movie'
+import type { Query } from '../types/query'
 
-type Props = {}
-type State = {}
+type Props = {
+    query: Query,
+    match: any,
+    setQuery: (query: Query) => void
+}
 
-class IndexPage extends Component<Props, State> {
+class IndexPage extends Component<Props> {
+
+    static defaultProp = {
+        query: {},
+        match: { params: {} },
+        setQuery: () => {}
+    }
+
+    syncQuery() {
+        const { query, match, setQuery } = this.props
+
+        const term = match.params.term
+        if (term !== query.term) {
+            setQuery && setQuery({ ...query, term })
+        }
+    }
+
+    componentDidMount() {
+        this.syncQuery()
+    }
 
     render() {
         const brand = "Movieseek"
@@ -38,5 +67,18 @@ class IndexPage extends Component<Props, State> {
     }
 }
 
-export default IndexPage
+const mapStateToProps = (state, ownProps) => ({
+    ...ownProps,
+    query: state.query
+})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    setQuery: (query) => {
+        dispatch(fetchMovies(query))
+        dispatch(searchMovies(query))
+    },
+    ...ownProps
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(IndexPage))
 
