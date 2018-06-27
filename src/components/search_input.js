@@ -1,7 +1,7 @@
-//@flow
+// @flow
 
-import React from 'react'
-import Button, { INFO, SECONDARY } from './button'
+import React from 'react';
+import Button, { INFO, SECONDARY } from './button';
 
 type Props = {
     term: string,
@@ -10,15 +10,16 @@ type Props = {
     onChange?: (string) => void,
 }
 
-const SearchInput = ({ term='', placeholder, buttonTitle, onChange }: Props) => {
+const SearchInput = ({
+  term = '', placeholder, buttonTitle, onChange,
+}: Props) => {
+  const _onChange = (event) => {
+    onChange && onChange(event.target.value);
+  };
 
-    const _onChange = (event) => {
-        onChange && onChange(event.target.value)
-    }
-
-    return (
+  return (
         <div className="input-group mb-3 search-input">
-            <input 
+            <input
                 type="text"
                 className="form-control"
                 value={term}
@@ -29,7 +30,7 @@ const SearchInput = ({ term='', placeholder, buttonTitle, onChange }: Props) => 
                 <Button title={buttonTitle} kind={SECONDARY} />
             </div>
         </div>
-    )
-}
+  );
+};
 
-export default SearchInput
+export default SearchInput;

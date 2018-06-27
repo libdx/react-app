@@ -4,4 +4,3 @@ export type Action = {
     meta?: any,
     error?: Error
 }
-

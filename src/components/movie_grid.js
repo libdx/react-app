@@ -1,10 +1,10 @@
-//@flow
+// @flow
 
-import React from 'react'
-import MovieCard from './movie_card'
-import EmptyState from './empty_state'
+import React from 'react';
+import MovieCard from './movie_card';
+import EmptyState from './empty_state';
 
-import type { Movie } from '../types/movie'
+import type { Movie } from '../types/movie';
 
 type Props = {
     movies: Array<Movie>,
@@ -12,22 +12,19 @@ type Props = {
 }
 
 const MovieGrid = ({ movies, onClick }: Props) => {
-
-    const items = movies.map(movie => {
-        return (
+  const items = movies.map(movie => (
             <div key={movie.id} className="col-md-4 col-sm-6">
                 <MovieCard movie={movie} onClick={ () => onClick && onClick(movie.id) }/>
             </div>
-        )
-    })
+  ));
 
-    const children = items.length > 0 ? items : <div className="col-sm-12"><EmptyState /></div>
+  const children = items.length > 0 ? items : <div className="col-sm-12"><EmptyState /></div>;
 
-    return (
+  return (
         <div className="row">
             {children}
         </div>
-    )
-}
+  );
+};
 
-export default MovieGrid
+export default MovieGrid;

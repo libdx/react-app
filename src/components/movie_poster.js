@@ -1,16 +1,13 @@
-//@flow
+// @flow
 
-import React from 'react'
-import { posterURL } from '../types/movie'
-import type { Movie } from '../types/movie'
+import React from 'react';
+import { posterURL } from '../types/movie';
+import type { Movie } from '../types/movie';
 
 type Props = {
     movie: Movie
 }
 
-const MoviePoster = ({ movie }: Props) => {
-    return <img className="card-img-top poster-img" src={posterURL(movie)} />
-}
+const MoviePoster = ({ movie }: Props) => <img className="card-img-top poster-img" src={posterURL(movie)} />;
 
-export default MoviePoster
-
+export default MoviePoster;

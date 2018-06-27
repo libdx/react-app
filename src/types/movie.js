@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 export type Movie = {
     id: number,
@@ -15,39 +15,23 @@ export type Movie = {
     genres: Array<string>,
 }
 
-export const movieID = (movie: Movie): number => {
-    return movie.id
-}
+export const movieID = (movie: Movie): number => movie.id;
 
-export const topmostGenre = (movie: Movie): string => {
-    return movie.genres[0]
-}
+export const topmostGenre = (movie: Movie): string => movie.genres[0];
 
-export const genre = (movie: Movie): string => {
-    return movie.genres.join(', ')
-}
+export const genre = (movie: Movie): string => movie.genres.join(', ');
 
-export const title = (movie: Movie): string => {
-    return `${movie.title} (${movie.vote_average})`
-}
+export const title = (movie: Movie): string => `${movie.title} (${movie.vote_average})`;
 
 export const releaseYear = (movie: Movie): number => {
-    const date = new Date(movie.release_date)
-    return date.getFullYear()
-}
+  const date = new Date(movie.release_date);
+  return date.getFullYear();
+};
 
-export const overview = (movie: Movie): string => {
-    return movie.overview
-}
+export const overview = (movie: Movie): string => movie.overview;
 
-export const posterURL = (movie: Movie): string => {
-    return movie.poster_path
-}
+export const posterURL = (movie: Movie): string => movie.poster_path;
 
-export const date = (movie: Movie): Date => {
-    return new Date(movie.release_date)
-}
+export const date = (movie: Movie): Date => new Date(movie.release_date);
 
-export const raiting = (movie: Movie): number => {
-    return movie.vote_average
-}
+export const raiting = (movie: Movie): number => movie.vote_average;

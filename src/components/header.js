@@ -1,14 +1,13 @@
-//@flow
+// @flow
 
-import * as React from 'react'
+import * as React from 'react';
 
 type HeaderProps = {
     brand: string,
     children?: React.Node
 }
 
-const Header = (props: HeaderProps) => {
-    return (
+const Header = (props: HeaderProps) => (
         <div className="header">
             <p className="brand-label">
                 {props.brand}
@@ -18,7 +17,6 @@ const Header = (props: HeaderProps) => {
             </p>
             {props.children}
         </div>
-    )
-}
+);
 
-export default Header
+export default Header;

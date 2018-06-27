@@ -1,18 +1,17 @@
-//@flow
+// @flow
 
-import React, { Component } from 'react'
-import MovieTitle from './movie_title'
-import MovieGenreLabel from './movie_genre_label'
-import MoviePoster from './movie_poster'
-import MovieDescription from './movie_description'
-import type { Movie } from '../types/movie'
+import React, { Component } from 'react';
+import MovieTitle from './movie_title';
+import MovieGenreLabel from './movie_genre_label';
+import MoviePoster from './movie_poster';
+import MovieDescription from './movie_description';
+import type { Movie } from '../types/movie';
 
 type Props = {
     movie: Movie
 }
 
-const MovieDetails = ({movie}: Props) => {
-    return (
+const MovieDetails = ({ movie }: Props) => (
         <div className="card movie-details">
             <div className="row">
                 <div className="col-md-4">
@@ -27,7 +26,6 @@ const MovieDetails = ({movie}: Props) => {
                 </div>
             </div>
         </div>
-    )
-}
+);
 
-export default MovieDetails
+export default MovieDetails;

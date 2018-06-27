@@ -1,19 +1,18 @@
-import { SEARCH_MOVIES } from '..'
-import { searchMovies } from '../search_movies'
+import { SEARCH_MOVIES } from '..';
+import { searchMovies } from '../search_movies';
 
 describe('SEARCH_MOVIES action', () => {
-    it('creates action with passed query', () => {
-        const query = {
-            term: 'abc',
-            searchScope: 'TITLE',
-            sortKey: 'RATING',
-            sortOrder: 'ASC'
-        }
-        const action = searchMovies(query)
-        expect(action).toEqual({
-            type: SEARCH_MOVIES,
-            payload: query
-        })
-    })
-})
-
+  it('creates action with passed query', () => {
+    const query = {
+      term: 'abc',
+      searchScope: 'TITLE',
+      sortKey: 'RATING',
+      sortOrder: 'ASC',
+    };
+    const action = searchMovies(query);
+    expect(action).toEqual({
+      type: SEARCH_MOVIES,
+      payload: query,
+    });
+  });
+});

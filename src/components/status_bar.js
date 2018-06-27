@@ -1,6 +1,6 @@
-//@flow
-import React, { PureComponent } from 'react'
-import type { SortKey } from '../types/sorting'
+// @flow
+import React, { PureComponent } from 'react';
+import type { SortKey } from '../types/sorting';
 
 type SortOption = {
     id: SortKey,
@@ -16,23 +16,24 @@ type Props = {
 }
 
 class StatusBar extends PureComponent<Props> {
-
     renderOption = (option: SortOption) => {
-        const { activeOptionID, onOptionClick } = this.props
-        const sortOptClassName = option.id === activeOptionID ? 'sort-opt-active' : 'sort-opt'
-        const className = `col-2 ${sortOptClassName}`
-        const onClick = e => onOptionClick && (option.id !== activeOptionID) && onOptionClick(option.id)
+      const { activeOptionID, onOptionClick } = this.props;
+      const sortOptClassName = option.id === activeOptionID ? 'sort-opt-active' : 'sort-opt';
+      const className = `col-2 ${sortOptClassName}`;
+      const onClick = e => onOptionClick && (option.id !== activeOptionID) && onOptionClick(option.id);
 
-        return (
+      return (
             <span key={option.id} className={className} onClick={onClick}>
                 {option.title}
             </span>
-        )
+      );
     }
 
     render() {
-        const { title, optionsTitle='', options=[], activeOptionID } = this.props
-        return (
+      const {
+        title, optionsTitle = '', options = [], activeOptionID,
+      } = this.props;
+      return (
             <div className="status-bar">
                 <div className="row">
                     <span className="col-6">{title}</span>
@@ -40,8 +41,8 @@ class StatusBar extends PureComponent<Props> {
                     {options.map(this.renderOption)}
                 </div>
             </div>
-        )
+      );
     }
 }
 
-export default StatusBar
+export default StatusBar;

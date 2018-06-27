@@ -1,13 +1,11 @@
-//@flow
+// @flow
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-const EmptyState = () => {
-    return (
+const EmptyState = () => (
         <div className="empty-state">
             <p>No movies found</p>
         </div>
-    )
-}
+);
 
-export default EmptyState
+export default EmptyState;

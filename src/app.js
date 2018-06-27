@@ -1,23 +1,23 @@
-//@flow
+// @flow
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import ErrorBoundary from './components/error_boundary'
-import Header from './components/header'
-import Footer from './components/footer'
-import EmptyState from './components/empty_state'
-import NotFound from './components/not_found'
-import MovieDetails from './components/movie_details'
-import IndexPage from './pages/index_page'
-import MoviePage from './pages/movie_page'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom';
+import ErrorBoundary from './components/error_boundary';
+import Header from './components/header';
+import Footer from './components/footer';
+import EmptyState from './components/empty_state';
+import NotFound from './components/not_found';
+import MovieDetails from './components/movie_details';
+import IndexPage from './pages/index_page';
+import MoviePage from './pages/movie_page';
 
 type Props = {}
 
 class App extends Component<Props> {
-    render() {
-        const brand = "Movieseek"
-        return (
+  render() {
+    const brand = 'Movieseek';
+    return (
             <div className="container">
                 <ErrorBoundary>
                     <Switch>
@@ -30,9 +30,8 @@ class App extends Component<Props> {
                     </Switch>
                 </ErrorBoundary>
             </div>
-        )
-    }
+    );
+  }
 }
 
-export default App
-
+export default App;

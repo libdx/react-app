@@ -1,6 +1,6 @@
-import type { SearchScope } from './search'
-import type { SortKey } from './sorting'
-import type { SortOrder } from './sorting'
+import type { SearchScope } from './search';
+import type { SortKey } from './sorting';
+import type { SortOrder } from './sorting';
 
 export type Query = {
     term: string,
@@ -8,4 +8,3 @@ export type Query = {
     sortKey: SortKey,
     sortOrder: SortOrder,
 }
-

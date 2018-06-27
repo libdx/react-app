@@ -8,6 +8,7 @@
   "devDependencies": {
     "axios-mock-adapter": "^1.15.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.5",
     "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -20,6 +21,12 @@
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "17.0.0",
+    "eslint-plugin-flowtype": "^2.49.3",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "flow-bin": "^0.69.0",
     "flow-webpack-plugin": "^1.2.0",
@@ -69,7 +76,8 @@
     "test": "jest --silent",
     "test-debug": "jest",
     "e2e-test": "casperjs test e2e-tests",
-    "coverage": "jest --coverage --silent"
+    "coverage": "jest --coverage --silent",
+    "lint": "eslint . --cache --fix"
   },
   "jest": {
     "collectCoverageFrom": [
