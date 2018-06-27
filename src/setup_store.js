@@ -9,22 +9,14 @@ import storage from 'redux-persist/lib/storage'
 
 import reducer from './reducers'
 
-const persistConfig = {
-    key: 'root',
-    storage
-}
-
-const persistedReducer = persistReducer(persistConfig, reducer)
-
 const debounce = createDebounce()
 
-export default () => {
+export default (initialState = {}) => {
     const store = createStore(
-        persistedReducer,
-        {},
+        reducer,
+        initialState,
         applyMiddleware(debounce, thunk, promise, logger)
     )
-    const persistor = persistStore(store)
-    return { store, persistor }
+    return { store, persistor: {} }
 }
 

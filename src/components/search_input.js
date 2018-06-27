@@ -10,7 +10,7 @@ type Props = {
     onChange?: (string) => void,
 }
 
-const SearchInput = ({ term, placeholder, buttonTitle, onChange }: Props) => {
+const SearchInput = ({ term='', placeholder, buttonTitle, onChange }: Props) => {
 
     const _onChange = (event) => {
         onChange && onChange(event.target.value)

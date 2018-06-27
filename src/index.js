@@ -10,17 +10,20 @@ import App from './app'
 import setupStore from './setup_store'
 import './styles/common.css'
 
-const { store, persistor } = setupStore()
+const preloadedState = window.__PRELOADED_STATE__
+
+delete window.__PRELOADED_STATE__
+
+const { store, persistor } = setupStore(preloadedState)
 
 const root = document.getElementById('root')
+
 const element =
     <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-            <Router>
-                <App />
-            </Router>
-        </PersistGate>
+        <Router>
+            <App />
+        </Router>
     </Provider>
 
-ReactDOM.render(element, root)
+ReactDOM.hydrate(element, root)
 

@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import _ from 'lodash'
 
+import { loadMovies } from '../actions/load_movies'
 import { searchMovies } from '../actions/search_movies'
 import { fetchMovies } from '../actions/fetch_movies'
 
@@ -23,6 +24,7 @@ import SearchResultsPanel from '../containers/search_results_panel'
 import type { ButtonRecord } from '../components/button_group'
 import type { Movie } from '../types/movie'
 import type { Query } from '../types/query'
+import type { Action } from '../types/action'
 
 type Props = {
     query: Query,
@@ -33,7 +35,7 @@ type Props = {
 class IndexPage extends Component<Props> {
 
     static defaultProp = {
-        query: {},
+        query: { term: '' },
         match: { params: {} },
         setQuery: () => {}
     }
@@ -41,7 +43,7 @@ class IndexPage extends Component<Props> {
     syncQuery() {
         const { query, match, setQuery } = this.props
 
-        const term = match.params.term
+        const term = match.params.term || ''
         if (term !== query.term) {
             setQuery && setQuery({ ...query, term })
         }
@@ -65,6 +67,11 @@ class IndexPage extends Component<Props> {
             </div>
         )
     }
+}
+
+export const prefetchData = (query: Query): Promise<any> => {
+    const action = loadMovies(query)
+    return action.payload.then( response => ({ movies: response.data.data }) )
 }
 
 const mapStateToProps = (state, ownProps) => ({

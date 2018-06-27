@@ -9,10 +9,13 @@ import Footer from '../components/footer'
 import MovieDetails from '../components/movie_details'
 import StatusBar from '../components/status_bar'
 import { fetchMovie } from '../actions/fetch_movie'
+import { loadMovie } from '../actions/load_movie'
 import { fetchRelevantMovies } from '../actions/fetch_relevant_movies'
+import { loadRelevantMovies } from '../actions/load_relevant_movies'
 import { topmostGenre } from '../types/movie'
 
 import type { Movie } from '../types/movie'
+import type { Action } from '../types/action'
 
 type Params = {
     id?: string
@@ -69,6 +72,20 @@ class MoviePage extends Component<Props> {
             </div>
         )
     }
+}
+
+export const prefetchData = (movieId: number): Promise<any> => {
+    return new Promise( resolve => {
+        loadMovie(movieId).payload.then( response => {
+            const currentMovie = response.data
+            const genre = topmostGenre(currentMovie)
+            loadRelevantMovies(genre).payload.then( response => {
+                const relevantMovies = response.data.data
+                resolve({ currentMovie, relevantMovies })
+            })
+        })
+    })
+    
 }
 
 const mapStateToProps = (state, ownProps) => ({

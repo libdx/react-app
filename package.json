@@ -41,6 +41,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-stage-0": "^6.24.1",
     "express": "^4.16.3",
     "lodash": "^4.17.10",
     "react": "^16.3.1",
@@ -56,8 +57,11 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production",
+    "dev-start-client": "webpack-dev-server --mode development",
+    "dev-build-client": "webpack --mode development --watch",
+    "prod-build-client": "webpack --mode production",
+    "dev-build-server": "webpack --mode development --config webpack.server.js --watch",
+    "dev-start-server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "flow": "flow",
     "test": "jest --silent",
     "test-debug": "jest",
