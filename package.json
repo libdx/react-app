@@ -27,6 +27,8 @@
     "html-webpack-plugin": "^3.2.0",
     "jest": "^22.4.3",
     "node-sass": "^4.8.3",
+    "nodemon": "^1.17.5",
+    "npm-run-all": "^4.1.3",
     "phantom": "^4.0.12",
     "react-test-renderer": "^16.3.2",
     "redux-devtools": "^3.4.1",
@@ -57,11 +59,12 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "dev": "npm-run-all --parallel dev-*",
     "dev-start-client": "webpack-dev-server --mode development",
     "dev-build-client": "webpack --mode development --watch",
-    "prod-build-client": "webpack --mode production",
     "dev-build-server": "webpack --mode development --config webpack.server.js --watch",
     "dev-start-server": "nodemon --watch build --exec \"node build/bundle.js\"",
+    "prod-build-client": "webpack --mode production",
     "flow": "flow",
     "test": "jest --silent",
     "test-debug": "jest",
