@@ -74,18 +74,11 @@ class MoviePage extends Component<Props> {
     }
 }
 
-export const prefetchData = (movieId: number): Promise<any> => {
-    return new Promise( resolve => {
-        loadMovie(movieId).payload.then( response => {
-            const currentMovie = response.data
-            const genre = topmostGenre(currentMovie)
-            loadRelevantMovies(genre).payload.then( response => {
-                const relevantMovies = response.data.data
-                resolve({ currentMovie, relevantMovies })
-            })
-        })
-    })
-    
+export const prefetchData = async (movieId: number): Promise<any> => {
+    const { data: currentMovie } = await loadMovie(movieId).payload
+    const genre = topmostGenre(currentMovie)
+    const { data: { data: relevantMovies } } = await loadRelevantMovies(genre).payload
+    return { currentMovie, relevantMovies }
 }
 
 const mapStateToProps = (state, ownProps) => ({
