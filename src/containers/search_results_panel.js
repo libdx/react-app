@@ -13,6 +13,7 @@ import { fetchMovies } from '../actions/fetch_movies';
 
 import type { SearchScope } from '../types/search';
 import type { Query } from '../types/query';
+import type { ButtonRecord } from '../components/button_group';
 
 const buttonRecords: Array<ButtonRecord> = [
   { id: 'TITLE', title: 'Title' },
@@ -24,13 +25,6 @@ type Props = {
     query: Query,
     onChange?: (query: Query) => void,
 }
-
-// const updateHistory_ = (history, term) => {
-//    const encodedTerm = encodeURI(query.term)
-//    history.replace(`/search/${encodedTerm}`)
-// }
-//
-// const updateHistory = _.debounce(updateHistory_, 300)
 
 class SearchResultsPanel extends Component<Props> {
     onTermChange = (term: string): void => {
@@ -47,7 +41,7 @@ class SearchResultsPanel extends Component<Props> {
     }
 
     updateHistory(term) {
-      const encodedTerm = encodeURI(query.term);
+      const encodedTerm = encodeURI(term);
       history.replace(`/search/${encodedTerm}`);
     }
 

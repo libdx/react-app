@@ -5,6 +5,11 @@
     ],
     "rules": {
         "max-len": [1, 120, 2, {"ignoreComments": true }],
+        "no-unused-vars": [0],
+        "no-underscore-dangle": [1],
+        "no-shadow": [0],
+        "import/prefer-default-export": [1],
+        "no-unused-expressions": [1]
     },
     "extends": ["airbnb-base"],
     "env": {
