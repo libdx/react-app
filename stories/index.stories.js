@@ -6,16 +6,16 @@ import { linkTo } from '@storybook/addon-links';
 
 import '../src/styles/common.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import Button, { SECONDARY } from '../src/components/button'
-import ButtonGroup from '../src/components/button_group'
-import MovieCard from '../src/components/movie_card'
-import MovieGrid from '../src/components/movie_grid'
-import MovieDetails from '../src/components/movie_details'
-import SearchPanel from '../src/components/search_panel'
-import EmptyState from '../src/components/empty_state'
-import NotFound from '../src/components/not_found'
+import Button, { SECONDARY } from '../src/components/button';
+import ButtonGroup from '../src/components/button_group';
+import MovieCard from '../src/components/movie_card';
+import MovieGrid from '../src/components/movie_grid';
+import MovieDetails from '../src/components/movie_details';
+import SearchPanel from '../src/components/search_panel';
+import EmptyState from '../src/components/empty_state';
+import NotFound from '../src/components/not_found';
 
-import { forrest as movie, movies } from '../src/data/mocks'
+import { forrest as movie, movies } from '../src/data/mocks';
 
 storiesOf('Button', module)
   .add('with text', () => <Button title="Common Button" onClick={action('clicked')} />)
@@ -29,7 +29,7 @@ storiesOf('Button', module)
 storiesOf('ButtonGroup', module)
   .add('with title and text', () => (
     <ButtonGroup title="Which OS?" buttons={
-      [{id: "0", title: "macOS"}, {id: "1", title: "Linux"}, {id: "2", title: "Windows"}]
+      [{ id: '0', title: 'macOS' }, { id: '1', title: 'Linux' }, { id: '2', title: 'Windows' }]
     }
     selectedButtonId="1" onClick={action('button from group clicked')} />
   ));
@@ -56,7 +56,7 @@ storiesOf('SearchPanel', module)
   .add('with some children', () => (
     <SearchPanel term="Matrix" onChange={action('search term changed')} >
       <ButtonGroup title="Scope Search By?" buttons={
-        [{id: "0", title: "macOS"}, {id: "1", title: "Linux"}, {id: "2", title: "Windows"}]
+        [{ id: '0', title: 'macOS' }, { id: '1', title: 'Linux' }, { id: '2', title: 'Windows' }]
       } />
     </SearchPanel>
   ));

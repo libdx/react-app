@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from '../components/header';
@@ -97,4 +98,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MoviePage));
